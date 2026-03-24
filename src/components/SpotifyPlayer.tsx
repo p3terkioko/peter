@@ -45,13 +45,16 @@ export default function SpotifyPlayer() {
       rel="noreferrer"
       className="flex items-center gap-4 font-mono text-xs md:text-sm text-parchment/60 hover:text-neonAccent transition-colors hover-target group border border-parchment/10 p-2 bg-charcoal/50 backdrop-blur-sm shadow-xl"
     >
-      <div className="flex flex-col text-right">
+      <div className="flex flex-col text-right mt-1">
+        <span className="text-[9px] tracking-widest uppercase opacity-40 mb-1 leading-none mr-3 md:mr-0">
+          Currently Listening To:
+        </span>
         <div className="flex items-center justify-end gap-2">
           <span className="font-bold text-parchment group-hover:text-neonAccent truncate max-w-[120px] md:max-w-[180px]">
             {data.title}
           </span>
           <motion.div 
-            animate={{ scale: [1, 1.2, 1] }} 
+            animate={{ scale: [1, 1.3, 1] }} 
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="w-1.5 h-1.5 rounded-full bg-neonAccent" 
           />
