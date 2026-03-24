@@ -63,12 +63,12 @@ export default function Works() {
         {projects.map((project, i) => (
           <div 
             key={i} 
-            className="sticky top-0 h-[100svh] w-full flex flex-col justify-end p-4 md:p-12 border-b border-parchment/10 overflow-hidden"
+            className="relative md:sticky md:top-0 min-h-[70svh] md:h-[100svh] w-full flex flex-col justify-end p-4 py-16 md:p-12 border-b border-parchment/10 overflow-hidden"
             style={{
               backgroundColor: project.color,
             }}
           >
-            <div className="flex justify-between items-end w-full pb-[10vh]">
+            <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end w-full pb-8 md:pb-[10vh]">
                <div className="flex flex-col gap-6 max-w-3xl z-10 mix-blend-difference">
                  <div className="flex gap-2 flex-wrap">
                    {project.tech.map(t => (
