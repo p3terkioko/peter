@@ -40,12 +40,13 @@ export default function Hero() {
         </motion.p>
       </div>
 
-      <div className="absolute bottom-6 md:bottom-8 left-4 md:left-8">
-        <LocalTime />
-      </div>
-
-      <div className="absolute bottom-6 md:bottom-8 right-4 md:right-8 z-50">
-        <SpotifyPlayer />
+      <div className="absolute bottom-6 md:bottom-8 left-4 md:left-8 right-4 md:right-8 flex flex-col-reverse md:flex-row justify-between items-start md:items-end gap-4 md:gap-0 z-50 pointer-events-none">
+        <div className="pointer-events-auto opacity-80 md:opacity-100 pb-2 md:pb-0">
+          <LocalTime />
+        </div>
+        <div className="pointer-events-auto self-end md:self-auto">
+          <SpotifyPlayer />
+        </div>
       </div>
     </section>
   );
