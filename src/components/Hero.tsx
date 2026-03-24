@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import LocalTime from "./LocalTime";
+import SpotifyPlayer from "./SpotifyPlayer";
 
 export default function Hero() {
   const name = "PETER KIOKO".split("");
@@ -21,7 +22,7 @@ export default function Hero() {
               transition={{
                 duration: 0.8,
                 ease: [0.76, 0, 0.24, 1],
-                delay: index * 0.05 + 2.5, // Intentionally waits for Preloader to finish!
+                delay: index * 0.05 + 2.5, 
               }}
               className="inline-block"
             >
@@ -32,15 +33,19 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 3.3 }} // Wait until letters animate
+          transition={{ duration: 0.6, delay: 3.3 }} 
           className="mt-6 md:mt-8 font-mono text-sm md:text-base text-parchment/60 tracking-widest uppercase text-center max-w-sm md:max-w-md"
         >
           Creative Developer & Software Engineer
         </motion.p>
       </div>
 
-      <div className="absolute bottom-8 left-4 md:left-8">
+      <div className="absolute bottom-6 md:bottom-8 left-4 md:left-8">
         <LocalTime />
+      </div>
+
+      <div className="absolute bottom-6 md:bottom-8 right-4 md:right-8 z-50">
+        <SpotifyPlayer />
       </div>
     </section>
   );
