@@ -1,0 +1,205 @@
+﻿  Γû▓ Next.js 14.2.3
+
+   Creating an optimized production build ...
+node.exe : (node:3208) 
+[DEP0040] 
+DeprecationWarning: 
+The `punycode` module 
+is deprecated. Please 
+use a userland 
+alternative instead.
+At C:\Program Files\nod
+ejs\npx.ps1:29 char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ((node:3208) [   
+ DE...native instea    
+d.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+(Use `node 
+--trace-deprecation 
+...` to show where the 
+warning was created)
+Failed to compile.
+
+src\app\layout.tsx
+An error occurred in 
+`next/font`.
+
+Error: Cannot find 
+module 'autoprefixer'
+Require stack:
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\blocks\css\pl
+ugins.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\blocks\css\in
+dex.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\index.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck-config.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck-build\impl.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\compiled\je
+st-worker\processChild.
+js
+    at Module._resolveF
+ilename (node:internal/
+modules/cjs/loader:1248
+:15)
+    at C:\Users\hp\Desk
+top\mycode\peter\node_m
+odules\next\dist\server
+\require-hook.js:55:36
+    at 
+Function.resolve (node:
+internal/modules/helper
+s:145:19)
+    at loadPlugin (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\build\webpack\con
+fig\blocks\css\plugins.
+js:49:32)
+    at C:\Users\hp\Desk
+top\mycode\peter\node_m
+odules\next\dist\build\
+webpack\config\blocks\c
+ss\plugins.js:157:56
+    at Array.map 
+(<anonymous>)
+    at 
+getPostCssPlugins (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\build\webpack\con
+fig\blocks\css\plugins.
+js:157:47)
+    at async C:\Users\h
+p\Desktop\mycode\peter\
+node_modules\next\dist\
+build\webpack\config\bl
+ocks\css\index.js:124:3
+6
+    at async C:\Users\h
+p\Desktop\mycode\peter\
+node_modules\next\dist\
+build\webpack\loaders\n
+ext-font-loader\index.j
+s:86:33
+    at async 
+Span.traceAsyncFn (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\trace\trace.js:15
+4:20)
+
+src\app\layout.tsx
+An error occurred in 
+`next/font`.
+
+Error: Cannot find 
+module 'autoprefixer'
+Require stack:
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\blocks\css\pl
+ugins.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\blocks\css\in
+dex.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck\config\index.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck-config.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\build\webpa
+ck-build\impl.js
+- C:\Users\hp\Desktop\m
+ycode\peter\node_module
+s\next\dist\compiled\je
+st-worker\processChild.
+js
+    at Module._resolveF
+ilename (node:internal/
+modules/cjs/loader:1248
+:15)
+    at C:\Users\hp\Desk
+top\mycode\peter\node_m
+odules\next\dist\server
+\require-hook.js:55:36
+    at 
+Function.resolve (node:
+internal/modules/helper
+s:145:19)
+    at loadPlugin (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\build\webpack\con
+fig\blocks\css\plugins.
+js:49:32)
+    at C:\Users\hp\Desk
+top\mycode\peter\node_m
+odules\next\dist\build\
+webpack\config\blocks\c
+ss\plugins.js:157:56
+    at Array.map 
+(<anonymous>)
+    at 
+getPostCssPlugins (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\build\webpack\con
+fig\blocks\css\plugins.
+js:157:47)
+    at async C:\Users\h
+p\Desktop\mycode\peter\
+node_modules\next\dist\
+build\webpack\config\bl
+ocks\css\index.js:124:3
+6
+    at async C:\Users\h
+p\Desktop\mycode\peter\
+node_modules\next\dist\
+build\webpack\loaders\n
+ext-font-loader\index.j
+s:86:33
+    at async 
+Span.traceAsyncFn (C:\U
+sers\hp\Desktop\mycode\
+peter\node_modules\next
+\dist\trace\trace.js:15
+4:20)
+
+
+> Build failed because 
+of webpack errors
