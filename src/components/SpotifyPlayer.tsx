@@ -43,7 +43,7 @@ export default function SpotifyPlayer() {
       href={data.songUrl} 
       target="_blank" 
       rel="noreferrer"
-      className="flex items-center gap-4 font-mono text-xs md:text-sm text-parchment/60 hover:text-neonAccent transition-colors hover-target group border border-parchment/10 p-2 bg-charcoal/50 backdrop-blur-sm shadow-xl"
+      className="flex items-center gap-3 md:gap-4 font-mono text-xs md:text-sm text-parchment/60 hover:text-neonAccent transition-colors hover-target group border border-parchment/10 p-2 bg-charcoal/50 backdrop-blur-sm shadow-xl origin-bottom-right scale-[0.85] md:scale-100"
     >
       <div className="flex flex-col text-right mt-1">
         <span className="text-[9px] tracking-widest uppercase opacity-40 mb-1 leading-none mr-3 md:mr-0">

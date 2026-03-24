@@ -32,7 +32,7 @@ export default function About() {
           Manifesto
         </div>
 
-        <div className="max-w-5xl mx-auto flex flex-wrap gap-x-2 md:gap-x-4 gap-y-1 text-2xl md:text-5xl lg:text-7xl font-heading leading-none uppercase">
+        <div className="max-w-5xl mx-auto flex flex-wrap gap-x-1.5 md:gap-x-4 gap-y-1 md:gap-y-2 text-xl sm:text-2xl md:text-5xl lg:text-7xl font-heading leading-tight md:leading-none uppercase px-2 md:px-0">
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + (1 / words.length);

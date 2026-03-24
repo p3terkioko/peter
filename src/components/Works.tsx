@@ -78,11 +78,11 @@ export default function Works() {
                    ))}
                  </div>
                  {project.link ? (
-                   <a href={project.link} target="_blank" rel="noreferrer" className="text-[10vw] md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block hover:text-neonAccent transition-colors hover-target focus:outline-none">
-                     {project.title} <span className="text-3xl md:text-5xl align-top ml-2 opacity-50">↗</span>
+                   <a href={project.link} target="_blank" rel="noreferrer" className="text-5xl sm:text-6xl md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block hover:text-neonAccent transition-colors hover-target focus:outline-none mt-4 md:mt-0">
+                     {project.title} <span className="text-2xl md:text-5xl align-top ml-2 opacity-50">↗</span>
                    </a>
                  ) : (
-                   <h3 className="text-[10vw] md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block">
+                   <h3 className="text-5xl sm:text-6xl md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block mt-4 md:mt-0">
                      {project.title}
                    </h3>
                  )}

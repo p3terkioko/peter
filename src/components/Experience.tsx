@@ -47,20 +47,20 @@ export default function Experience() {
             key={i} 
             className="flex flex-col py-8 md:py-12 border-b border-parchment/20 group hover:bg-parchment/5 transition-colors cursor-crosshair"
           >
-            <div className="font-mono text-neonAccent text-lg mb-8 tracking-widest">{exp.company}</div>
+            <div className="font-mono text-neonAccent text-xl md:text-lg mb-8 font-bold md:font-normal tracking-widest">{exp.company}</div>
             
-            <div className="flex flex-col gap-12 w-full pl-4 md:pl-8 border-l border-parchment/20 ml-2">
+            <div className="flex flex-col gap-12 w-full pl-6 md:pl-8 border-l border-parchment/20 ml-1 md:ml-2">
               {exp.roles.map((role, j) => (
                 <div key={j} className="flex flex-col md:flex-row justify-between relative group/role">
-                  <div className="absolute -left-[21px] md:-left-[37px] top-1.5 w-2.5 h-2.5 bg-neonAccent/30 group-hover/role:bg-neonAccent transition-colors rounded-full" />
+                  <div className="absolute -left-[29px] md:-left-[37px] top-1.5 w-2.5 h-2.5 bg-neonAccent/30 group-hover/role:bg-neonAccent transition-colors rounded-full" />
                   
-                  <div className="flex-1 font-mono text-xs md:text-sm tracking-widest uppercase mb-4 md:mb-0 opacity-60 mt-1">
+                  <div className="flex-1 font-mono text-[11px] md:text-sm tracking-widest uppercase mb-3 md:mb-0 opacity-60 mt-1">
                     {role.date}
                   </div>
-                  <div className="flex-[2] flex flex-col gap-2 pr-4">
-                    <h3 className="text-2xl md:text-3xl font-heading uppercase leading-none">{role.title}</h3>
+                  <div className="flex-[2] flex flex-col gap-2 pr-0 md:pr-4 mb-3 md:mb-0">
+                    <h3 className="text-3xl md:text-3xl font-heading uppercase leading-none">{role.title}</h3>
                   </div>
-                  <div className="flex-[2] font-mono text-sm md:text-base opacity-70 mt-3 md:mt-0 max-w-sm">
+                  <div className="flex-[2] font-mono text-sm md:text-base opacity-80 mt-1 md:mt-0 max-w-sm leading-relaxed">
                     {role.details}
                   </div>
                 </div>
