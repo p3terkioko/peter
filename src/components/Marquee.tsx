@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const skills = [
   "NEXT.JS", "REACT", "TAILWIND", "TYPESCRIPT", 
-  "PYTHON", "FASTAPI", "POSTGRESQL", "AWS", 
+  "PYTHON", "ELIXIR", "PHOENIX LIVEVIEW", "FASTAPI", "POSTGRESQL", "AWS", 
   "DOCKER", "FIGMA"
 ];
 // Append the separator smoothly

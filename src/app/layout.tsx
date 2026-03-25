@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Space_Mono } from "next/font/google";
 import "./globals.css";
+import KonamiEasterEgg from "../components/KonamiEasterEgg";
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${bebas.variable} ${spaceMono.variable} bg-charcoal text-parchment font-mono antialiased overflow-x-hidden selection:bg-neonAccent selection:text-white`}>
         {children}
+        <KonamiEasterEgg />
       </body>
     </html>
   );
