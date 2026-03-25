@@ -18,12 +18,12 @@ const experiences = [
     ]
   },
   {
-    company: "KamiLimu Mentorship Program",
+    company: "KamiLimu",
     roles: [
       {
         title: "Cohort 9 Mentee",
         date: "Mar 2025 - Nov 2025",
-        details: "8-month intensive tech mentorship. Innovation Finals Runner-Up. Scholarship & Public Speaking Semi-Finalist."
+        details: "An 8-month structured mentorship program for undergraduate tech students in Kenya. Innovation Finals Runner-Up. Scholarship & Public Speaking Semi-Finalist."
       }
     ]
   }
@@ -39,21 +39,21 @@ export default function Experience() {
 
       <div className="w-full border-t border-parchment/20">
         {experiences.map((exp, i) => (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-            key={i} 
+            key={i}
             className="flex flex-col py-8 md:py-12 border-b border-parchment/20 group hover:bg-parchment/5 transition-colors cursor-crosshair"
           >
             <div className="font-mono text-neonAccent text-xl md:text-lg mb-8 font-bold md:font-normal tracking-widest">{exp.company}</div>
-            
+
             <div className="flex flex-col gap-12 w-full pl-6 md:pl-8 border-l border-parchment/20 ml-1 md:ml-2">
               {exp.roles.map((role, j) => (
                 <div key={j} className="flex flex-col md:flex-row justify-between relative group/role">
                   <div className="absolute -left-[29px] md:-left-[37px] top-1.5 w-2.5 h-2.5 bg-neonAccent/30 group-hover/role:bg-neonAccent transition-colors rounded-full" />
-                  
+
                   <div className="flex-1 font-mono text-[11px] md:text-sm tracking-widest uppercase mb-3 md:mb-0 opacity-60 mt-1">
                     {role.date}
                   </div>

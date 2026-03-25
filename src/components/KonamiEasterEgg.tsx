@@ -1,25 +1,49 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function KonamiEasterEgg() {
   const [triggered, setTriggered] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     let inputSequence: string[] = [];
-    // Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A
+    
+    // Classic Konami Code for Visual Effect
     const konamiCode = [
-      "ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown",
-      "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
+      "arrowup", "arrowup", "arrowdown", "arrowdown",
+      "arrowleft", "arrowright", "arrowleft", "arrowright",
       "b", "a"
     ];
+    
+    // Fahhh sequence for Audio Effect
+    const fahhhCode = ["f", "a", "h", "h", "h"];
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      inputSequence.push(e.key);
-      inputSequence = inputSequence.slice(-konamiCode.length);
+      // Prevent triggering while user is typing in forms
+      if (document.activeElement?.tagName === "INPUT" || document.activeElement?.tagName === "TEXTAREA") return;
 
-      if (inputSequence.join("").toLowerCase() === konamiCode.join("").toLowerCase()) {
+      inputSequence.push(e.key.toLowerCase());
+      
+      // Limit memory keeping only the max length sequence needed
+      if (inputSequence.length > 20) {
+        inputSequence.shift();
+      }
+
+      const seqStr = inputSequence.join("");
+
+      // Trigger Visual Effect
+      if (seqStr.endsWith(konamiCode.join(""))) {
         setTriggered((prev) => !prev);
+        inputSequence = [];
+      }
+
+      // Trigger Audio Effect
+      if (seqStr.endsWith(fahhhCode.join(""))) {
+        if (audioRef.current) {
+          audioRef.current.currentTime = 0;
+          audioRef.current.play().catch(err => console.error("Audio play failed:", err));
+        }
         inputSequence = [];
       }
     };
@@ -37,19 +61,6 @@ export default function KonamiEasterEgg() {
   }, [triggered]);
 
   return (
-    <>
-      <style dangerouslySetInnerHTML={{ __html: `
-        .konami-mode {
-          filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
-          animation: crtFlicker 0.1s infinite;
-        }
-
-        @keyframes crtFlicker {
-          0% { opacity: 0.95; }
-          50% { opacity: 1; }
-          100% { opacity: 0.9; }
-        }
-      `}} />
-    </>
+    <audio ref={audioRef} src="/fahhh.mp3" preload="auto" />
   );
 }

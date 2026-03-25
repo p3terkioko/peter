@@ -8,3 +8,14 @@
     color: #F0EBE0;
   }
 }
+
+.konami-mode {
+  filter: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.2);
+  animation: crtFlicker 0.1s infinite;
+}
+
+@keyframes crtFlicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
