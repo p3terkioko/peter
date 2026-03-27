@@ -13,8 +13,8 @@ export default function Contact() {
       </div>
 
       <div className="flex-1 flex flex-col justify-center items-center py-20">
-        <a 
-          href="mailto:peterkioko64@gmail.com" 
+        <a
+          href="mailto:peterkioko64@gmail.com"
           className="text-[18vw] md:text-[15vw] leading-[0.8] font-heading uppercase hover:opacity-70 transition-opacity hover-target block text-center"
         >
           LET'S TALK
@@ -25,7 +25,7 @@ export default function Contact() {
         <span>© 2026 PETER KIOKO</span>
         <div className="flex gap-8 mt-4 md:mt-0">
           <a href="https://github.com/p3terkioko" target="_blank" rel="noreferrer" className="hover:underline hover-target">GitHub</a>
-          <a href="https://linkedin.com/in/" target="_blank" rel="noreferrer" className="hover:underline hover-target">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/peter-kioko-94294723b/" target="_blank" rel="noreferrer" className="hover:underline hover-target">LinkedIn</a>
         </div>
       </div>
     </section>
