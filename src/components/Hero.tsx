@@ -21,7 +21,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 3.3 }} 
           className="mt-6 md:mt-8 font-mono text-sm md:text-base text-parchment/60 tracking-widest uppercase text-center max-w-sm md:max-w-md"
         >
-          Creative Developer & Software Engineer
+          Frontend Developer & Software Engineer
         </motion.p>
       </div>
 

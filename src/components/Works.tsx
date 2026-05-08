@@ -6,15 +6,15 @@ const projects = [
     tech: ["Cloud Native", "AgriTech", "Data Analytics"],
     desc: "Cloud native application delivering planting advisory based on climatic conditions for small-holder maize farmers in Machakos.",
     year: "2025",
-    color: "#050505",
+    bgClass: "bg-[#050505]",
     link: "https://github.com/p3terkioko/MawinguOps"
   },
   {
     title: "FITCHECK AI",
-    tech: ["Python", "FastAPI", "pgvector", "NLP"],
-    desc: "AI-powered fitness misinformation detection. End-to-end vector search using pgvector and sentence-transformers.",
+    tech: ["Python", "FastAPI", "pgvector", "NLP", "Supabase", "DigitalOcean"],
+    desc: "AI-powered fitness misinformation detection. End-to-end vector search using pgvector and sentence-transformers. Deployed on DigitalOcean with a CI/CD pipeline.",
     year: "2025",
-    color: "#0a0a0a",
+    bgClass: "bg-[#0a0a0a]",
     link: "https://github.com/RyanSmoak/FitCheck"
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     tech: ["PHP", "Tailwind", "JavaScript", "MySQL"],
     desc: "Full-featured web-based educational platform with course delivery and content management.",
     year: "2024",
-    color: "#0f0f0f",
+    bgClass: "bg-[#0f0f0f]",
     link: null
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     tech: ["Solidity", "Ethereum", "M-Pesa API"],
     desc: "Smart contract platform enabling reliable M-Pesa to crypto transactions in East Africa.",
     year: "2024",
-    color: "#060606",
+    bgClass: "bg-[#060606]",
     link: "https://github.com/danielobima/AlgoPesa"
   },
   {
@@ -38,7 +38,7 @@ const projects = [
     tech: ["JavaScript", "REST APIs", "CoinGecko", "CSS"],
     desc: "Real-time cryptocurrency data application demonstrating agile UI rendering and API usage.",
     year: "2023",
-    color: "#080808",
+    bgClass: "bg-[#080808]",
     link: "https://github.com/p3terkioko/crypto-tracker"
   },
   {
@@ -46,7 +46,7 @@ const projects = [
     tech: ["JavaScript", "REST APIs", "CSS", "HTML"],
     desc: "Real-time local weather tracking application implementing dynamic user interfaces.",
     year: "2023",
-    color: "#090909",
+    bgClass: "bg-[#090909]",
     link: "https://github.com/p3terkioko/weather2"
   }
 ];
@@ -63,10 +63,7 @@ export default function Works() {
         {projects.map((project, i) => (
           <div 
             key={i} 
-            className="relative md:sticky md:top-0 min-h-[70svh] md:h-[100svh] w-full flex flex-col justify-end p-4 py-16 md:p-12 border-b border-parchment/10 overflow-hidden"
-            style={{
-              backgroundColor: project.color,
-            }}
+            className={`relative md:sticky md:top-0 min-h-[70svh] md:h-[100svh] w-full flex flex-col justify-end p-4 py-16 md:p-12 border-b border-parchment/10 overflow-hidden ${project.bgClass}`}
           >
             <div className="flex flex-col md:flex-row md:justify-between items-start md:items-end w-full pb-8 md:pb-[10vh]">
                <div className="flex flex-col gap-6 max-w-3xl z-10 mix-blend-difference">

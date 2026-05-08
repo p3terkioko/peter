@@ -26,6 +26,36 @@ const experiences = [
         details: "An 8-month structured mentorship program for undergraduate tech students in Kenya. Innovation Finals Runner-Up. Scholarship & Public Speaking Semi-Finalist."
       }
     ]
+  },
+  {
+    company: "Achievements",
+    roles: [
+      {
+        title: "Algorand Hackathon UoN — 2nd Place",
+        date: "2024",
+        details: "Built a blockchain application at the University of Nairobi Algorand Hackathon. Placed 2nd out of competing teams."
+      },
+      {
+        title: "Code Africa Hackathon — $100 Bounty",
+        date: "2024",
+        details: "Awarded a $100 bounty for deploying an Ethereum Layer 2 application on Base chain at the Code Africa Hackathon."
+      },
+      {
+        title: "Moringa School — Software Engineering",
+        date: "2022",
+        details: "Completed Phase 0 and Phase 1 of the Software Engineering programme at Moringa School, Nairobi."
+      }
+    ]
+  },
+  {
+    company: "University of Nairobi",
+    roles: [
+      {
+        title: "BSc Computer Science",
+        date: "2022 - 2026",
+        details: "Bachelor of Science in Computer Science. Expected graduation 2026."
+      }
+    ]
   }
 ];
 

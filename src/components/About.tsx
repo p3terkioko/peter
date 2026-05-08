@@ -18,11 +18,11 @@ export default function About() {
     offset: ["start start", "end end"],
   });
 
-  const text = "I am a Software Engineer and Creative Developer based in Nairobi. I build digital experiences that combine robust engineering with unapologetic design. I believe in writing clean code, crafting buttery animations, and delivering systems that perform at scale.";
+  const text = "I am a Frontend Developer and Software Engineer based in Nairobi. I build digital experiences that combine robust engineering with unapologetic design. I believe in writing clean code, crafting buttery animations, and delivering systems that perform at scale.";
   const words = text.split(" ");
 
   return (
-    <section ref={containerRef} className="w-full relative z-20 bg-charcoal" style={{ height: "200svh" }}>
+    <section ref={containerRef} className="w-full relative z-20 bg-charcoal h-[200svh]">
       <div className="sticky top-0 h-[100svh] w-full flex flex-col items-center justify-center px-4 md:px-24 border-t border-parchment/10 overflow-hidden">
         
         <div className="absolute top-8 left-4 md:left-8 text-xs md:text-sm text-parchment/50 font-mono tracking-widest uppercase">
