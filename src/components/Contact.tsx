@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const marqueeText = "LET'S TALK  •  LET'S TALK  •  LET'S TALK  •  LET'S TALK  •  ";
 
@@ -34,6 +35,7 @@ export default function Contact() {
         <div className="flex gap-8 mt-4 md:mt-0">
           <a href="https://github.com/p3terkioko" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">GitHub</a>
           <a href="https://www.linkedin.com/in/peter-kioko-94294723b/" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">LinkedIn</a>
+          <Link href="/kitchen" className="hover:underline hover-target">Kitchen</Link>
         </div>
       </div>
     </section>
