@@ -17,7 +17,7 @@ const HOTSPOT_POSITIONS: [number, number, number][] = [
 ];
 
 function KitchenModel({ onLoaded }: { onLoaded: (box: THREE.Box3) => void }) {
-  const { scene } = useGLTF("/models/scene.gltf");
+  const { scene } = useGLTF("/models/scene-opt.glb");
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -314,3 +314,5 @@ export default function KitchenScene() {
     </div>
   );
 }
+
+useGLTF.preload("/models/scene-opt.glb");
