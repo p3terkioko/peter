@@ -1,6 +1,16 @@
 "use client";
+import Link from "next/link";
 
 const projects = [
+  {
+    title: "CLAUDE DESKTOP BUDDY",
+    tech: ["ESP32", "C++", "BLE", "PlatformIO", "Claude API"],
+    desc: "Physical AI companion built on TTGO T-Display. An ESP32 device that connects to Claude via BLE — the ASCII cat reacts in real time to your conversation state: thinking, responding, idle, celebrating.",
+    year: "2026",
+    bgClass: "bg-[#060606]",
+    link: "/projects/buddy",
+    internal: true,
+  },
   {
     title: "MAWINGUOPS",
     tech: ["Cloud Native", "AgriTech", "Data Analytics"],
@@ -74,7 +84,11 @@ export default function Works() {
                      </span>
                    ))}
                  </div>
-                 {project.link ? (
+                 {project.link && (project as any).internal ? (
+                   <Link href={project.link} className="text-5xl sm:text-6xl md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block hover:text-neonAccent transition-colors hover-target focus:outline-none mt-4 md:mt-0">
+                     {project.title} <span className="text-2xl md:text-5xl align-top ml-2 opacity-50">→</span>
+                   </Link>
+                 ) : project.link ? (
                    <a href={project.link} target="_blank" rel="noreferrer" className="text-5xl sm:text-6xl md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block hover:text-neonAccent transition-colors hover-target focus:outline-none mt-4 md:mt-0">
                      {project.title} <span className="text-2xl md:text-5xl align-top ml-2 opacity-50">↗</span>
                    </a>
