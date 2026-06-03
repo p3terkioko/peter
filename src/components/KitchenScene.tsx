@@ -1,6 +1,6 @@
 "use client";
 import { Suspense, useRef, useState, useEffect, useCallback } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, Html, OrbitControls } from "@react-three/drei";
 import { useRouter } from "next/navigation";
 import { recipes, type Recipe } from "@/lib/recipes";
@@ -161,29 +161,6 @@ function Hotspot({
   );
 }
 
-function CameraRig() {
-  const { camera } = useThree();
-  const mouse = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      mouse.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      mouse.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
-
-  useFrame(() => {
-    camera.position.x += (mouse.current.x * 0.4 - camera.position.x) * 0.03;
-    camera.position.y +=
-      (-mouse.current.y * 0.2 + 1.5 - camera.position.y) * 0.03;
-    camera.position.z += (1.6 - camera.position.z) * 0.03;
-    camera.lookAt(-0.26, 1.5, -2.5);
-  });
-
-  return null;
-}
 
 function SceneContents({
   onReady,
@@ -199,8 +176,16 @@ function SceneContents({
 
   return (
     <>
-      <CameraRig />
-      <OrbitControls makeDefault={false} />
+      <OrbitControls
+        makeDefault
+        target={[-0.26, 1.5, -0.97]}
+        enableDamping
+        dampingFactor={0.05}
+        minDistance={0.5}
+        maxDistance={5}
+        minPolarAngle={0.1}
+        maxPolarAngle={Math.PI * 0.85}
+      />
       <ambientLight intensity={0.4} />
       <pointLight position={[-0.26, 3.2, -0.97]} intensity={1.5} color="#FF2D00" />
       <pointLight position={[-3, 2, 0]} intensity={0.8} color="#F0EBE0" />
