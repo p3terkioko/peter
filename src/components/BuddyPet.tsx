@@ -143,7 +143,7 @@ export default function BuddyPet() {
             marginBottom: 12,
           }}
         >
-          TTGO T-DISPLAY &mdash; {STATE_LABELS[state]}
+          TTGO T-DISPLAY: {STATE_LABELS[state]}
         </div>
 
         {/* ASCII display */}

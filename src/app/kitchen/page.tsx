@@ -33,7 +33,7 @@ export default function Kitchen() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // Hold until client knows device — avoids hydration mismatch
+  // Hold until client knows device, which avoids a hydration mismatch
   if (!mounted) return <div className="w-screen h-screen bg-charcoal" />;
 
   // ── Mobile ──────────────────────────────────────────────────────────────
@@ -64,7 +64,7 @@ export default function Kitchen() {
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
                 className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/30 mb-4"
               >
-                {recipes.length} Dishes &mdash; All From Scratch
+                {recipes.length} Dishes, All From Scratch
               </motion.p>
 
               <motion.h1
@@ -82,7 +82,7 @@ export default function Kitchen() {
                 transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.25 }}
                 className="font-mono text-xs text-parchment/50 uppercase tracking-widest mt-5 max-w-xs leading-relaxed"
               >
-                I cook the same way I build — with precision and without apology.
+                I cook the same way I build: with precision and without apology.
               </motion.p>
             </div>
 

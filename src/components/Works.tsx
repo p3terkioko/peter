@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "FITCHECK AI",
     tech: ["Python", "FastAPI", "pgvector", "Supabase", "Groq (Llama 3.3)", "DigitalOcean"],
     desc: "RAG pipeline for fitness misinformation detection. Vector search over 37,455 chunks from 921 papers, with Llama 3.3 on Groq generating the answers. Scored 97% on 8 claims. Deployed to DigitalOcean through a CI/CD pipeline.",
-    year: "2025",
+    year: "2026",
     bgClass: "bg-[#0a0a0a]",
     link: "https://github.com/p3terkioko/fitcheck"
   },

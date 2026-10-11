@@ -18,9 +18,9 @@ const TECH = [
 ];
 
 const FEATURES = [
-  "Six animated states — SLEEP, IDLE, BUSY, ATTENTION, CELEBRATE, HEART — each with multi-frame ASCII sequences extracted from a custom C animation engine.",
+  "Six animated states (SLEEP, IDLE, BUSY, ATTENTION, CELEBRATE, HEART), each with multi-frame ASCII sequences extracted from a custom C animation engine.",
   "BLE Nordic UART Service bridges Claude Desktop to the device over GATT; no Wi-Fi required.",
-  "Conversation-aware: the buddy reacts to Claude's state in real time — typing triggers BUSY, a completed response triggers CELEBRATE, long idle snaps to SLEEP.",
+  "Conversation-aware: the buddy reacts to Claude's state in real time: typing triggers BUSY, a completed response triggers CELEBRATE, long idle snaps to SLEEP.",
   "Sprite-based TFT rendering on a 240×135 display. Double-buffered frames prevent flicker at fast animation speeds.",
   "Button A/B on the device cycle states manually; long-press A triggers a heart animation.",
 ];
@@ -62,7 +62,7 @@ export default function BuddyPage() {
               animate="show"
               className="font-mono text-[10px] tracking-[0.35em] uppercase text-parchment/30 mb-4 md:mb-6"
             >
-              Hardware &mdash; AI &mdash; Embedded Systems
+              Hardware, AI, Embedded Systems
             </motion.p>
 
             <motion.h1
@@ -83,7 +83,7 @@ export default function BuddyPage() {
               className="font-mono text-[11px] md:text-sm text-parchment/55 uppercase tracking-widest mt-4 md:mt-6 max-w-xl leading-relaxed"
             >
               A physical AI companion that sits on your desk and reacts to Claude in real time.
-              Built on a TTGO T-Display ESP32 — because software should have a heartbeat.
+              Built on a TTGO T-Display ESP32, because software should have a heartbeat.
             </motion.p>
 
             {/* Image + 3D viewer side by side */}
@@ -102,7 +102,7 @@ export default function BuddyPage() {
                 <div className="border border-parchment/10 overflow-hidden">
                   <Image
                     src="/image.png"
-                    alt="Claude Desktop Buddy — TTGO T-Display device on desk"
+                    alt="Claude Desktop Buddy: TTGO T-Display device on desk"
                     width={480}
                     height={360}
                     className="w-full h-auto object-cover"
@@ -114,7 +114,7 @@ export default function BuddyPage() {
               {/* 3D viewer */}
               <div>
                 <p className="font-mono text-[9px] tracking-[0.3em] uppercase text-parchment/25 mb-2">
-                  3D Model — Interactive
+                  3D Model: Interactive
                 </p>
                 <div
                   className="border border-parchment/10"
@@ -147,7 +147,7 @@ export default function BuddyPage() {
           <section className="px-4 md:px-12 py-14 md:py-20 border-b border-parchment/10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start">
 
-              {/* Left — interactive demo */}
+              {/* Left: interactive demo */}
               <motion.div
                 variants={fade}
                 initial="hidden"
@@ -155,7 +155,7 @@ export default function BuddyPage() {
                 viewport={{ once: true }}
               >
                 <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/30 mb-6 md:mb-8">
-                  Live Demo — Interactive
+                  Live Demo: Interactive
                 </p>
                 <BuddyPet />
                 <p className="font-mono text-[9px] tracking-widest uppercase text-parchment/25 mt-4 md:mt-6 text-center">
@@ -163,7 +163,7 @@ export default function BuddyPage() {
                 </p>
               </motion.div>
 
-              {/* Right — description + tech */}
+              {/* Right: description + tech */}
               <motion.div
                 variants={stagger}
                 initial="hidden"
@@ -177,8 +177,8 @@ export default function BuddyPage() {
                   </p>
                   <p className="font-mono text-xs md:text-sm text-parchment/70 leading-relaxed">
                     Claude Desktop Buddy is a hardware extension for Claude Desktop. It runs as a
-                    companion app on your computer and streams Claude&apos;s conversation state —
-                    typing, thinking, idle, celebrating — to an ESP32 microcontroller over Bluetooth
+                    companion app on your computer and streams Claude&apos;s conversation state
+                    (typing, thinking, idle, celebrating) to an ESP32 microcontroller over Bluetooth
                     Low Energy using the Nordic UART Service protocol.
                   </p>
                   <p className="font-mono text-xs md:text-sm text-parchment/70 leading-relaxed mt-3 md:mt-4">
@@ -261,7 +261,7 @@ export default function BuddyPage() {
                 </Link>
               </div>
               <p className="font-mono text-[9px] tracking-widest uppercase text-parchment/20">
-                Peter Kioko &mdash; 2026
+                Peter Kioko, 2026
               </p>
             </div>
           </section>

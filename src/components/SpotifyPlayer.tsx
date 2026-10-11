@@ -36,7 +36,7 @@ export default function SpotifyPlayer() {
   if (!data.title) {
     return (
       <div className="flex items-center justify-end gap-3 font-mono text-xs md:text-sm text-parchment/30">
-        OFFLINE &mdash; SPOTIFY
+        SPOTIFY: OFFLINE
         <div className="w-1.5 h-1.5 rounded-full bg-parchment/20" />
       </div>
     );
@@ -73,6 +73,8 @@ export default function SpotifyPlayer() {
       </div>
       {data.albumImageUrl && (
         <div className={`relative w-10 h-10 rounded-full overflow-hidden border border-parchment/20 ${data.isPlaying ? "animate-[spin_8s_linear_infinite]" : ""}`}>
+          {/* Plain img on purpose: tiny remote album art, not worth routing through the image optimizer. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={data.albumImageUrl}
             alt="Album Art"

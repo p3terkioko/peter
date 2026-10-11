@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 // THREE is already in the bundle via @react-three/fiber.
 // OBJLoader is loaded dynamically inside useEffect so three-stdlib never
-// appears as a top-level import — this avoids a Next.js 14 clientModules crash
+// appears as a top-level import. This avoids a Next.js 14 clientModules crash
 // that triggers when three-stdlib is imported at the module level.
 
 function RotatingModel({ obj }: { obj: THREE.Object3D }) {
@@ -41,7 +41,7 @@ export default function TTGOViewer() {
           const box = new THREE.Box3().setFromObject(loaded);
           loaded.position.sub(box.getCenter(new THREE.Vector3()));
 
-          // MTL has Ka 1 1 1 on every face (pure-white ambient) — replace with
+          // MTL has Ka 1 1 1 on every face (pure-white ambient), so replace it with
           // a physically-based dark material so the model isn't washed out
           loaded.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
@@ -104,7 +104,7 @@ export default function TTGOViewer() {
         gl={{ antialias: true }}
         onCreated={({ gl }) => gl.setClearColor("#060606", 0)}
       >
-        {/* City IBL — gives realistic surface response without washing out */}
+        {/* City IBL: gives realistic surface response without washing out */}
         <Environment preset="city" />
         <ambientLight intensity={0.15} />
 

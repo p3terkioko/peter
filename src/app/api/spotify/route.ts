@@ -22,7 +22,7 @@ export async function GET() {
       }
     }
 
-    // Not playing — fall back to last played
+    // Not playing, so fall back to last played
     const recentRes = await getLastPlayed();
     if (recentRes.ok) {
       const recent = await recentRes.json();

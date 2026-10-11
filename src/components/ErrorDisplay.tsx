@@ -79,7 +79,7 @@ export default function ErrorDisplay({ code, message, quote }: ErrorDisplayProps
             {message}
           </h2>
           <p className="font-mono text-sm md:text-base text-parchment/60 tracking-widest text-center max-w-sm md:max-w-md italic mb-12">
-            "{displayQuote}"
+            &ldquo;{displayQuote}&rdquo;
           </p>
 
           <Link href="/">

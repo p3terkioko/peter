@@ -7,7 +7,7 @@ import { recipes, type Recipe } from "@/lib/recipes";
 import * as THREE from "three";
 
 // Actual kitchen world bounds: min(-3.55, 0, -4.04) max(3.02, 3.28, 2.10)
-// Center: (-0.26, 1.64, -0.97) — all positions below are calibrated to this scale
+// Center: (-0.26, 1.64, -0.97). All positions below are calibrated to this scale
 const HOTSPOT_POSITIONS: [number, number, number][] = [
   [-2.2, 2.2, -1.0],
   [-1.1, 2.2, -2.0],
@@ -263,7 +263,7 @@ export default function KitchenScene() {
         </div>
       )}
 
-      {/* Debug info — remove once camera is dialled in */}
+      {/* Debug info: remove once camera is dialled in */}
       {loaded && modelInfo && (
         <div
           style={{

@@ -8,10 +8,10 @@ export default function Contact() {
   return (
     <section className="w-full min-h-[80vh] bg-[#FF2D00] text-charcoal flex flex-col justify-between pt-4 md:pt-12 px-4 md:px-12 pb-4 md:pb-12 relative z-10 overflow-hidden">
       <div className="flex justify-between items-start w-full">
-        <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold">
+        <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold max-w-[70%] md:max-w-xl pr-4">
           Open to full-stack and AI-application roles. Nairobi, GMT+3, remote welcome. Let&apos;s talk.
         </div>
-        <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold">
+        <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold shrink-0 whitespace-nowrap">
           P. 005
         </div>
       </div>
