@@ -1,0 +1,227 @@
+/* Print layout for /cv. `npm run cv:pdf` renders the PDF from these rules, so
+   Ctrl+P and the downloadable file match. Target: 2 A4 pages. */
+
+@page {
+  size: A4;
+  margin: 15mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .cv-root {
+    min-height: 0;
+    background: #fff !important;
+    font-size: 10pt;
+    line-height: 1.25;
+  }
+
+  .cv-root * {
+    color: #000 !important;
+    border-color: #000 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .cv-root a {
+    text-decoration: none;
+  }
+
+  .cv-root li::marker {
+    color: #000;
+  }
+
+  /* Body copy prints in a proportional sans so 10pt fits on 2 pages; small
+     labels keep Space Mono and the name keeps Bebas. Bebas section headings
+     also extracted from the PDF as split words ("MENT OR"), which breaks ATS
+     parsing, so headings print in bold sans too. */
+  .cv-root .cv-body p,
+  .cv-root .cv-body li,
+  .cv-root .cv-body span,
+  .cv-root .cv-h2,
+  .cv-root .cv-h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Liberation Sans", sans-serif;
+  }
+
+  .cv-root .cv-body .cv-skill-group,
+  .cv-root .cv-body .cv-periods,
+  .cv-root .cv-body .cv-periods li,
+  .cv-root .cv-body .cv-stack,
+  .cv-root .cv-body .cv-stack span,
+  .cv-root .cv-body .cv-project-link,
+  .cv-root .cv-body .cv-note {
+    font-family: var(--font-space-mono), monospace;
+  }
+
+  .cv-root .cv-screen-only {
+    display: none !important;
+  }
+
+  .cv-root .cv-header,
+  .cv-root .cv-main {
+    padding: 0 !important;
+    max-width: none;
+  }
+
+  .cv-root .cv-header {
+    margin-bottom: 3mm;
+  }
+
+  .cv-root .cv-name {
+    font-size: 26pt;
+  }
+
+  .cv-root .cv-title {
+    margin-top: 1mm;
+    font-size: 9.5pt;
+    letter-spacing: 0.05em;
+  }
+
+  .cv-root .cv-contacts {
+    margin-top: 1.5mm;
+    column-gap: 4mm;
+    row-gap: 0;
+    font-size: 8.5pt;
+  }
+
+  .cv-root .cv-main {
+    gap: 2mm;
+  }
+
+  .cv-root .cv-section {
+    display: block;
+    padding-top: 1mm;
+    border-top-width: 0.5pt;
+  }
+
+  .cv-root .cv-h2 {
+    width: auto;
+    margin: 0 0 1mm;
+    padding: 0;
+    font-size: 11.5pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    break-after: avoid;
+  }
+
+  .cv-root .cv-body {
+    width: auto;
+    padding-left: 0;
+    border-left-width: 0;
+  }
+
+  /* Every text block in the body prints at 10pt unless overridden below. */
+  .cv-root .cv-body p,
+  .cv-root .cv-body li,
+  .cv-root .cv-body span {
+    font-size: 10pt;
+    line-height: 1.25;
+  }
+
+  .cv-root .cv-skills {
+    gap: 0.5mm;
+  }
+
+  .cv-root .cv-skill {
+    flex-direction: row;
+    gap: 3mm;
+  }
+
+  .cv-root .cv-body .cv-skill-group {
+    width: 27mm;
+    flex-shrink: 0;
+    padding-top: 0;
+    font-size: 8pt;
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+  }
+
+  .cv-root .cv-h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    break-after: avoid;
+  }
+
+  .cv-root .cv-body .cv-role-meta {
+    margin-top: 0.5mm;
+  }
+
+  .cv-root .cv-body .cv-periods,
+  .cv-root .cv-body .cv-periods li {
+    margin-top: 0;
+    font-size: 8.5pt;
+    letter-spacing: 0.05em;
+  }
+
+  .cv-root .cv-periods {
+    flex-direction: row;
+    column-gap: 4mm;
+  }
+
+  .cv-root .cv-list {
+    margin-top: 0.8mm;
+    gap: 0.4mm;
+    padding-left: 4mm;
+  }
+
+  .cv-root .cv-projects {
+    gap: 1.5mm;
+  }
+
+  .cv-root .cv-project {
+    padding: 0;
+    border: 0;
+  }
+
+  /* Repo link shares the project name's line to save vertical space. */
+  .cv-root .cv-project .cv-h3,
+  .cv-root .cv-body .cv-project-link {
+    display: inline;
+  }
+
+  .cv-root .cv-body .cv-project-link {
+    margin-left: 3mm;
+    font-size: 8.5pt;
+  }
+
+  .cv-root .cv-project .cv-stack {
+    display: block;
+  }
+
+  .cv-root .cv-body .cv-note {
+    margin-top: 0;
+    font-size: 8.5pt;
+  }
+
+  .cv-root .cv-body .cv-stack,
+  .cv-root .cv-body .cv-stack span {
+    margin-top: 0.5mm;
+    font-size: 8pt;
+    letter-spacing: 0.03em;
+  }
+
+  .cv-root .cv-body ul.flex {
+    gap: 1.5mm;
+  }
+
+  .cv-root .cv-body ul.cv-list {
+    gap: 0.4mm;
+  }
+
+  .cv-root .cv-entry,
+  .cv-root .cv-list li,
+  .cv-root .cv-skill {
+    break-inside: avoid;
+  }
+
+  .cv-root .cv-body .mt-3 {
+    margin-top: 0.5mm;
+  }
+}

@@ -38,6 +38,7 @@ export default function Contact() {
         <div className="flex gap-8 mt-4 md:mt-0">
           <a href="https://github.com/p3terkioko" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">GitHub</a>
           <a href="https://www.linkedin.com/in/peter-kioko-94294723b/" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">LinkedIn</a>
+          <Link href="/cv" className="hover:underline hover-target">CV</Link>
           <a href="/Peter_Kioko_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">Download CV</a>
           <Link href="/kitchen" className="hover:underline hover-target">Kitchen</Link>
         </div>
