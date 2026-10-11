@@ -28,3 +28,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
+
+# windows download markers
+*:Zone.Identifier

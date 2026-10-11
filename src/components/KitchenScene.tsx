@@ -16,7 +16,7 @@ const HOTSPOT_POSITIONS: [number, number, number][] = [
   [ 2.2, 2.2, -1.0],
 ];
 
-function KitchenModel({ onLoaded }: { onLoaded: (box: THREE.Box3) => void }) {
+function KitchenModel({ onLoaded }: { onLoaded: () => void }) {
   const { scene } = useGLTF("/models/scene-opt.glb");
 
   useEffect(() => {
@@ -33,11 +33,7 @@ function KitchenModel({ onLoaded }: { onLoaded: (box: THREE.Box3) => void }) {
       }
     });
 
-    const box = new THREE.Box3().setFromObject(scene);
-    console.log("[Kitchen] world bounds min:", box.min);
-    console.log("[Kitchen] world bounds max:", box.max);
-    console.log("[Kitchen] world center:", box.getCenter(new THREE.Vector3()));
-    onLoaded(box);
+    onLoaded();
   }, [scene, onLoaded]);
 
   return <primitive object={scene} dispose={null} />;
@@ -165,15 +161,8 @@ function Hotspot({
 function SceneContents({
   onReady,
 }: {
-  onReady: (box: THREE.Box3) => void;
+  onReady: () => void;
 }) {
-  const handleLoaded = useCallback(
-    (box: THREE.Box3) => {
-      onReady(box);
-    },
-    [onReady]
-  );
-
   return (
     <>
       <OrbitControls
@@ -191,7 +180,7 @@ function SceneContents({
       <pointLight position={[-3, 2, 0]} intensity={0.8} color="#F0EBE0" />
       <pointLight position={[3, 2, 0]} intensity={0.8} color="#F0EBE0" />
       <pointLight position={[0, 1.5, -3.5]} intensity={0.6} color="#F0EBE0" />
-      <KitchenModel onLoaded={handleLoaded} />
+      <KitchenModel onLoaded={onReady} />
       {recipes.map((recipe, i) => (
         <Hotspot
           key={recipe.slug}
@@ -206,16 +195,8 @@ function SceneContents({
 
 export default function KitchenScene() {
   const [loaded, setLoaded] = useState(false);
-  const [modelInfo, setModelInfo] = useState<string>("");
 
-  const handleReady = useCallback((box: THREE.Box3) => {
-    const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
-    setModelInfo(
-      `center: (${center.x.toFixed(1)}, ${center.y.toFixed(1)}, ${center.z.toFixed(1)}) | size: ${size.x.toFixed(1)} × ${size.y.toFixed(1)} × ${size.z.toFixed(1)}`
-    );
-    setLoaded(true);
-  }, []);
+  const handleReady = useCallback(() => setLoaded(true), []);
 
   return (
     <div style={{ width: "100vw", height: "100vh", position: "relative", background: "#060606" }}>
@@ -260,27 +241,6 @@ export default function KitchenScene() {
               Firing up the stove...
             </p>
           </div>
-        </div>
-      )}
-
-      {/* Debug info: remove once camera is dialled in */}
-      {loaded && modelInfo && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: "60px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 50,
-            fontFamily: "var(--font-space-mono)",
-            fontSize: "9px",
-            color: "rgba(240,235,224,0.25)",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            pointerEvents: "none",
-          }}
-        >
-          {modelInfo}
         </div>
       )}
 

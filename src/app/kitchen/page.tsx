@@ -93,7 +93,7 @@ export default function Kitchen() {
               animate="show"
               className="w-full"
             >
-              {recipes.map((recipe, i) => (
+              {recipes.map((recipe) => (
                 <motion.div key={recipe.slug} variants={rowVariants}>
                   <Link
                     href={`/kitchen/${recipe.slug}`}

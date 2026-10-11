@@ -6,7 +6,7 @@ const id = env.match(/SPOTIFY_CLIENT_ID=(.*)/)?.[1]?.trim();
 const secret = env.match(/SPOTIFY_CLIENT_SECRET=(.*)/)?.[1]?.trim();
 
 const REDIRECT_URI = 'http://localhost:8888/callback';
-const SCOPE = 'user-read-currently-playing';
+const SCOPE = 'user-read-currently-playing user-read-recently-played';
 
 const basic = Buffer.from(id + ':' + secret).toString('base64');
 
