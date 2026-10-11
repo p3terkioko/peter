@@ -21,9 +21,9 @@ const experiences = [
     company: "KamiLimu",
     roles: [
       {
-        // TODO: add the Cohort 10 dates and a one-line description.
+        // TODO: add a one-line description of the peer mentor role.
         title: "Cohort 10 Peer Mentor",
-        date: "",
+        date: "2026",
         details: ""
       },
       {
