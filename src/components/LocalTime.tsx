@@ -24,7 +24,7 @@ export default function LocalTime() {
 
   return (
     <div className="font-mono text-xs md:text-sm text-parchment/50 tracking-widest uppercase">
-      NAIROBI, KE &mdash; {time || "00:00:00"} EAT
+      NAIROBI, KE, {time || "00:00:00"} EAT
     </div>
   );
 }

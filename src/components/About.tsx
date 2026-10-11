@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 function Word({ word, progress, start, end }: { word: string, progress: MotionValue<number>, start: number, end: number }) {
@@ -18,7 +18,7 @@ export default function About() {
     offset: ["start start", "end end"],
   });
 
-  const text = "I am a Frontend Developer and Software Engineer based in Nairobi. I build digital experiences that combine robust engineering with unapologetic design. I believe in writing clean code, crafting buttery animations, and delivering systems that perform at scale.";
+  const text = "I build the whole thing: the interface people touch and the system that answers it. Solid engineering underneath, bold design on top. Data models that stay honest, APIs that hold under load, and interfaces that feel inevitable. I like the moment where both halves click into one product.";
   const words = text.split(" ");
 
   return (
@@ -36,7 +36,13 @@ export default function About() {
           {words.map((word, i) => {
             const start = i / words.length;
             const end = start + (1 / words.length);
-            return <Word key={i} word={word} progress={scrollYProgress} start={start} end={end} />;
+            // The space is a whitespace-only flex child, so it is not rendered, but it keeps
+            // words separated for screen readers, copy/paste and crawlers.
+            return (
+              <Fragment key={i}>
+                <Word word={word} progress={scrollYProgress} start={start} end={end} />{" "}
+              </Fragment>
+            );
           })}
         </div>
 

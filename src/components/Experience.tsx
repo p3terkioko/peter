@@ -6,13 +6,13 @@ const experiences = [
     company: "Saracen Marketing Group",
     roles: [
       {
-        title: "Junior Software Developer",
-        date: "Dec 2025 - Present",
+        title: "Software Engineer",
+        date: "Dec 2025 to Present",
         details: "Architecting resilient full-stack applications, dynamic frontends, and high-conversion landing pages. Driving platform innovation through advanced LLM/AI integrations and automating CI/CD deployment pipelines."
       },
       {
         title: "Software Developer Intern",
-        date: "Jun 2025 - Dec 2025",
+        date: "Jun 2025 to Dec 2025",
         details: "Engineered resilient frontend architectures for internal CRM tooling and managed enterprise-grade MS Dynamics 365 implementations. Executed rigorous Lighthouse audits, optimizing Core Web Vitals."
       }
     ]
@@ -21,8 +21,14 @@ const experiences = [
     company: "KamiLimu",
     roles: [
       {
+        // TODO: add the Cohort 10 dates and a one-line description.
+        title: "Cohort 10 Peer Mentor",
+        date: "",
+        details: ""
+      },
+      {
         title: "Cohort 9 Mentee",
-        date: "Mar 2025 - Nov 2025",
+        date: "Mar 2025 to Nov 2025",
         details: "An 8-month structured mentorship program for undergraduate tech students in Kenya. Innovation Finals Runner-Up. Scholarship & Public Speaking Semi-Finalist."
       }
     ]
@@ -31,17 +37,17 @@ const experiences = [
     company: "Achievements",
     roles: [
       {
-        title: "Algorand Hackathon UoN — 2nd Place",
+        title: "Algorand Hackathon UoN, 2nd Place",
         date: "2024",
         details: "Built a blockchain application at the University of Nairobi Algorand Hackathon. Placed 2nd out of competing teams."
       },
       {
-        title: "Code Africa Hackathon — $100 Bounty",
+        title: "Code Africa Hackathon, $100 Bounty",
         date: "2024",
         details: "Awarded a $100 bounty for deploying an Ethereum Layer 2 application on Base chain at the Code Africa Hackathon."
       },
       {
-        title: "Moringa School — Software Engineering",
+        title: "Moringa School, Software Engineering",
         date: "2022",
         details: "Completed Phase 0 and Phase 1 of the Software Engineering programme at Moringa School, Nairobi."
       }
@@ -52,8 +58,8 @@ const experiences = [
     roles: [
       {
         title: "BSc Computer Science",
-        date: "2022 - 2026",
-        details: "Bachelor of Science in Computer Science. Expected graduation 2026."
+        date: "2022 to 2026",
+        details: "BSc Computer Science, University of Nairobi, graduated September 2026, Second Class Honours (Upper Division)."
       }
     ]
   }

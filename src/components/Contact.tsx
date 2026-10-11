@@ -9,7 +9,7 @@ export default function Contact() {
     <section className="w-full min-h-[80vh] bg-[#FF2D00] text-charcoal flex flex-col justify-between pt-4 md:pt-12 px-4 md:px-12 pb-4 md:pb-12 relative z-10 overflow-hidden">
       <div className="flex justify-between items-start w-full">
         <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold">
-          Open to New Opportunities
+          Open to full-stack and AI-application roles. Nairobi, GMT+3, remote welcome. Let&apos;s talk.
         </div>
         <div className="font-mono text-xs md:text-sm tracking-widest uppercase opacity-80 font-bold">
           P. 005
@@ -27,6 +27,9 @@ export default function Contact() {
             <span>{marqueeText}</span>
           </motion.div>
         </a>
+        <a href="mailto:peterkioko64@gmail.com" className="hover-target mt-6 md:mt-8 font-mono text-sm md:text-xl tracking-widest font-bold hover:underline self-start">
+          peterkioko64@gmail.com
+        </a>
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-center font-mono text-xs md:text-sm tracking-widest uppercase border-t border-charcoal/20 pt-8 mt-12 w-full font-bold">
@@ -35,6 +38,7 @@ export default function Contact() {
         <div className="flex gap-8 mt-4 md:mt-0">
           <a href="https://github.com/p3terkioko" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">GitHub</a>
           <a href="https://www.linkedin.com/in/peter-kioko-94294723b/" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">LinkedIn</a>
+          <a href="/Peter_Kioko_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">Download CV</a>
           <Link href="/kitchen" className="hover:underline hover-target">Kitchen</Link>
         </div>
       </div>

@@ -2,10 +2,10 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  "NEXT.JS", "REACT", "TAILWIND", "TYPESCRIPT",
-  "NODE.JS", "EXPRESS.JS", "PYTHON", "ELIXIR", "PHOENIX LIVEVIEW", "FASTAPI",
-  "POSTGRESQL", "MONGODB", "AWS", "DIGITALOCEAN", "GITHUB ACTIONS",
-  "DOCKER", "FIGMA"
+  "TYPESCRIPT", "NODE.JS", "EXPRESS.JS", "PYTHON", "FASTAPI",
+  "ELIXIR", "PHOENIX LIVEVIEW", "POSTGRESQL", "PGVECTOR", "MONGODB",
+  "REACT", "NEXT.JS", "TAILWIND", "DOCKER", "GITHUB ACTIONS",
+  "NGINX", "DIGITALOCEAN", "LINUX", "FIGMA"
 ];
 // Append the separator smoothly
 const marqueeText = skills.join("  •  ") + "  •  ";
@@ -19,7 +19,7 @@ export default function Marquee() {
         transition={{ ease: "linear", duration: 25, repeat: Infinity }}
       >
         <span className="pr-12">{marqueeText}</span>
-        <span className="pr-12">{marqueeText}</span>
+        <span className="pr-12" aria-hidden="true">{marqueeText}</span>
       </motion.div>
     </section>
   );

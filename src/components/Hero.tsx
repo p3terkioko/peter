@@ -13,15 +13,15 @@ export default function Hero() {
 
       <div className="flex flex-col items-center justify-center px-4 w-full">
         <h1 className="flex text-[15vw] md:text-[14vw] font-heading leading-[0.85] overflow-hidden justify-center hover-target cursor-default">
-          <KineticText text="PETER KIOKO" delayStart={2.5} />
+          <KineticText text="PETER KIOKO" delayStart={0} />
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 3.3 }} 
+          transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-6 md:mt-8 font-mono text-sm md:text-base text-parchment/60 tracking-widest uppercase text-center max-w-sm md:max-w-md"
         >
-          Frontend Developer & Software Engineer
+          Full-Stack Software Engineer
         </motion.p>
       </div>
 

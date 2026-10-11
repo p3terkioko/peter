@@ -17,7 +17,7 @@ export async function generateMetadata({
   const recipe = getRecipeBySlug(params.slug);
   if (!recipe) return {};
   return {
-    title: `${recipe.title.toUpperCase()} — Kitchen / Peter Kioko`,
+    title: `${recipe.title.toUpperCase()} | Kitchen | Peter Kioko`,
     description: recipe.note,
   };
 }

@@ -1,11 +1,30 @@
 "use client";
 import Link from "next/link";
 
-const projects = [
+type Project = {
+  title: string;
+  tech: string[];
+  desc: string;
+  year: string;
+  bgClass: string;
+  link: string | null;
+  internal?: boolean;
+  note?: string;
+};
+
+const projects: Project[] = [
+  {
+    title: "FITCHECK AI",
+    tech: ["Python", "FastAPI", "pgvector", "Supabase", "Groq (Llama 3.3)", "DigitalOcean"],
+    desc: "RAG pipeline for fitness misinformation detection. Vector search over 37,455 chunks from 921 papers, with Llama 3.3 on Groq generating the answers. Scored 97% on 8 claims. Deployed to DigitalOcean through a CI/CD pipeline.",
+    year: "2025",
+    bgClass: "bg-[#0a0a0a]",
+    link: "https://github.com/p3terkioko/fitcheck"
+  },
   {
     title: "CLAUDE DESKTOP BUDDY",
     tech: ["ESP32", "C++", "BLE", "PlatformIO", "Claude API"],
-    desc: "Physical AI companion built on TTGO T-Display. An ESP32 device that connects to Claude via BLE — the ASCII cat reacts in real time to your conversation state: thinking, responding, idle, celebrating.",
+    desc: "Physical AI companion built on TTGO T-Display. An ESP32 device that connects to Claude via BLE. The ASCII cat reacts in real time to your conversation state: thinking, responding, idle, celebrating.",
     year: "2026",
     bgClass: "bg-[#060606]",
     link: "/projects/buddy",
@@ -13,52 +32,64 @@ const projects = [
   },
   {
     title: "MAWINGUOPS",
-    tech: ["Cloud Native", "AgriTech", "Data Analytics"],
+    tech: ["Node.js", "Express.js", "SQLite", "Python", "scikit-learn", "Gemini API", "Africa's Talking USSD", "Docker", "Google Cloud Run", "GitHub Actions"],
     desc: "Cloud native application delivering planting advisory based on climatic conditions for small-holder maize farmers in Machakos.",
     year: "2025",
     bgClass: "bg-[#050505]",
     link: "https://github.com/p3terkioko/MawinguOps"
   },
   {
-    title: "FITCHECK AI",
-    tech: ["Python", "FastAPI", "pgvector", "NLP", "Supabase", "DigitalOcean"],
-    desc: "AI-powered fitness misinformation detection. End-to-end vector search using pgvector and sentence-transformers. Deployed on DigitalOcean with a CI/CD pipeline.",
-    year: "2025",
-    bgClass: "bg-[#0a0a0a]",
-    link: "https://github.com/RyanSmoak/FitCheck"
+    title: "OCC VS 2PL KV STORE",
+    tech: ["Python", "Distributed Systems", "Concurrency Control", "Benchmarking"],
+    desc: "Distributed key-value store that compares optimistic concurrency control with two-phase locking. A coordinator validates OCC commits, data nodes handle storage and locks, and a benchmark harness runs both strategies under the same workloads and charts the results.",
+    year: "2026",
+    bgClass: "bg-[#080808]",
+    link: "https://github.com/p3terkioko/occ"
   },
   {
-    title: "EDUSPHERE",
-    tech: ["PHP", "Tailwind", "JavaScript", "MySQL"],
-    desc: "Full-featured web-based educational platform with course delivery and content management.",
-    year: "2024",
-    bgClass: "bg-[#0f0f0f]",
+    title: "TABVAULT",
+    tech: ["JavaScript", "Manifest V3", "Alarms API"],
+    desc: "Manifest V3 browser extension that backs up tab groups and tabs on a schedule. Backups are driven by the Alarms API, so they keep running after the service worker is shut down.",
+    year: "2026",
+    bgClass: "bg-[#0a0a0a]",
+    link: "https://github.com/p3terkioko/TabVault"
+  },
+  {
+    // TODO: add a screenshot for this card.
+    // TODO: confirm the product name and full stack (database, hosting) to add as tags.
+    title: "ANALYTICS PLATFORM",
+    tech: ["Elixir", "Phoenix LiveView"],
+    desc: "Analytics product covering 3 markets and 15 channels. Designed the rollup and retention model that keeps sentiment data available beyond the live window.",
+    year: "2026",
+    bgClass: "bg-[#060606]",
     link: null
   },
   {
+    // TODO: add a screenshot for this card.
+    // TODO: add the stack for this product as tags (not provided yet).
+    title: "COWORKING PLATFORM",
+    tech: [],
+    desc: "Management product for coworking spaces. An 8-table data model with role-based access for 4 roles. The invoicing flow locks the slot and tracks invoice and payment separately.",
+    year: "2026",
+    bgClass: "bg-[#050505]",
+    link: null
+  },
+  {
+    // TODO: the name suggests Algorand but the tags say Solidity and Ethereum. Confirm which chain AlgoPesa used and fix the tags.
     title: "ALGOPESA",
     tech: ["Solidity", "Ethereum", "M-Pesa API"],
     desc: "Smart contract platform enabling reliable M-Pesa to crypto transactions in East Africa.",
     year: "2024",
-    bgClass: "bg-[#060606]",
-    link: "https://github.com/danielobima/AlgoPesa"
-  },
-  {
-    title: "CRYPTO TRACKER",
-    tech: ["JavaScript", "REST APIs", "CoinGecko", "CSS"],
-    desc: "Real-time cryptocurrency data application demonstrating agile UI rendering and API usage.",
-    year: "2023",
     bgClass: "bg-[#080808]",
-    link: "https://github.com/p3terkioko/crypto-tracker"
-  },
-  {
-    title: "WEATHER APP",
-    tech: ["JavaScript", "REST APIs", "CSS", "HTML"],
-    desc: "Real-time local weather tracking application implementing dynamic user interfaces.",
-    year: "2023",
-    bgClass: "bg-[#090909]",
-    link: "https://github.com/p3terkioko/weather2"
+    link: "https://github.com/danielobima/AlgoPesa",
+    note: "Team project"
   }
+];
+
+const earlierWork = [
+  { title: "EduSphere", link: "https://github.com/p3terkioko/Edusphere" },
+  { title: "Crypto Tracker", link: "https://github.com/p3terkioko/crypto-tracker" },
+  { title: "Weather App", link: "https://github.com/p3terkioko/weather2" },
 ];
 
 export default function Works() {
@@ -84,7 +115,7 @@ export default function Works() {
                      </span>
                    ))}
                  </div>
-                 {project.link && (project as any).internal ? (
+                 {project.link && project.internal ? (
                    <Link href={project.link} className="text-5xl sm:text-6xl md:text-[8vw] font-heading uppercase text-parchment leading-none m-0 p-0 block hover:text-neonAccent transition-colors hover-target focus:outline-none mt-4 md:mt-0">
                      {project.title} <span className="text-2xl md:text-5xl align-top ml-2 opacity-50">→</span>
                    </Link>
@@ -100,6 +131,11 @@ export default function Works() {
                  <p className="font-mono text-sm md:text-base text-parchment/80 leading-relaxed max-w-md mt-2 md:mt-0">
                    {project.desc}
                  </p>
+                 {project.note && (
+                   <span className="font-mono text-xs text-parchment/50 uppercase tracking-widest">
+                     {project.note}
+                   </span>
+                 )}
                </div>
                
                <div className="font-mono text-lg md:text-2xl text-neonAccent font-bold pb-2 z-10">
@@ -112,6 +148,18 @@ export default function Works() {
               0{i+1}
             </div>
           </div>
+        ))}
+      </div>
+
+      <div className="relative z-10 px-4 md:px-12 py-8 bg-charcoal border-b border-parchment/10 font-mono text-sm md:text-base text-parchment/60">
+        Earlier work (2023 to 2024):{" "}
+        {earlierWork.map((work, i) => (
+          <span key={work.title}>
+            <a href={work.link} target="_blank" rel="noreferrer" className="text-parchment hover:text-neonAccent transition-colors hover-target">
+              {work.title}
+            </a>
+            {i < earlierWork.length - 1 ? ", " : ""}
+          </span>
         ))}
       </div>
     </section>

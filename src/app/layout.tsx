@@ -17,8 +17,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PETER KIOKO — Creative Developer",
-  description: "Portfolio of Peter Kioko, Software Developer and Creative.",
+  title: "Peter Kioko | Full-Stack Software Engineer",
+  description: "Full-stack software engineer in Nairobi building React and TypeScript interfaces on Node, Python and Elixir backends.",
 };
 
 export default function RootLayout({
