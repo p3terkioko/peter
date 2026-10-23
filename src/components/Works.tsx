@@ -31,6 +31,15 @@ const projects: Project[] = [
     internal: true,
   },
   {
+    title: "HOTWIRING MY DASHBOARD",
+    tech: ["Android", "ADB", "Reverse engineering", "Java", "Claude Code"],
+    desc: "Replaced the software on a budget Android head unit in my Toyota Auris: a new home screen, radio, Bluetooth music and phone, a boot animation, and Android Auto that starts by itself. 271 KB, 20.8 MB of RAM.",
+    year: "2026",
+    bgClass: "bg-[#080808]",
+    link: "/projects/auris-head-unit",
+    internal: true,
+  },
+  {
     title: "MAWINGUOPS",
     tech: ["Node.js", "Express.js", "SQLite", "Python", "scikit-learn", "Gemini API", "Africa's Talking USSD", "Docker", "Google Cloud Run", "GitHub Actions"],
     desc: "Cloud native application delivering planting advisory based on climatic conditions for small-holder maize farmers in Machakos.",
