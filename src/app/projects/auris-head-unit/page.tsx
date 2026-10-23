@@ -49,8 +49,7 @@ export default function AurisHeadUnitPage() {
               Hotwiring My Dashboard
             </h1>
             <p className="font-mono text-sm md:text-lg text-parchment/70 leading-relaxed mt-6 md:mt-8 max-w-3xl">
-              How I reverse-engineered a budget Android head unit and gave my Toyota Auris an interface I
-              actually want to use.
+              Rebuilding my car’s screen
             </p>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/30 mt-6">
               Peter Kioko · 20 to 22 October 2026
