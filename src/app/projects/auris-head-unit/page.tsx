@@ -75,19 +75,20 @@ export default function AurisHeadUnitPage() {
             <P>
               The home screen on my Toyota Auris was a glass carousel. A dark chrome ring with an album cover
               on one side and an analogue clock on the other, a little car silhouette parked in the middle
-              against a purple skyline. Radio, Bluetooth and Settings sat in a row of icons underneath. It was
-              a screensaver that happened to play the radio.
+              against a purple skyline. Radio, Bluetooth and Settings sat in a row of icons underneath. It did the
+              job, and it had been doing it that way for as long as anyone had used the car.
             </P>
             <P>
               It also came with an Android Auto app called Headunit Reloaded, which had never connected. Not
-              over USB. Not over Bluetooth. Not over a hotspot.
+              over USB, not over Bluetooth, not over a hotspot. Nobody had fixed it, because it had always
+              been that way. I decided to find out why.
             </P>
-            <P>Three days later, the carousel was gone.</P>
+            <P>Three days later, the carousel was gone, and the screen was something I’d built.</P>
             <P>
               The radio, Bluetooth music and phone were mine. The screen switched between a night and a day
               theme on its own, and Android Auto started the moment my phone connected. This is how that
-              happened, what I broke on the way, and the bits that are still rough. And if I ever regret it,
-              the carousel is one command away.
+              happened: the digging, the dead ends, the fixes, and the parts I’m still improving. Every change
+              was reversible, so I could be bold.
             </P>
 
             {/* Spec box */}
@@ -112,8 +113,8 @@ export default function AurisHeadUnitPage() {
               160 dpi, the Wi-Fi is 2.4 GHz only, and no steering-wheel buttons are connected to anything.
             </P>
             <P>
-              The software looks like something a catalogue photographs well. Dark chrome, bevelled dialpad
-              keys, a carousel. It works, in the way a hotel kettle works.
+              The stock software is dark chrome, bevelled dialpad keys and a carousel. It’s functional, and it
+              left a lot of room to make the car feel better to use.
             </P>
 
             <Figure
@@ -165,10 +166,10 @@ export default function AurisHeadUnitPage() {
             </P>
             <P>
               The first is what the notes call the media killer. A vendor patch force-closes every other media
-              app the moment one starts playing, which would have murdered any radio app I wrote. There’s an
+              app the moment one starts playing, which would have shut down any radio app I wrote. There’s an
               escape hatch: five hidden settings slots, <span className="text-parchment">xy_ext_audiofilter0</span> to{" "}
-              <span className="text-parchment">4</span>, list apps that are exempt. The catch? They’re only read
-              at boot.
+              <span className="text-parchment">4</span>, list apps that are exempt. They’re only read at boot,
+              so I planned around that.
             </P>
             <P>
               The other three were smaller but just as useful. The default home screen is a single vendor
@@ -350,7 +351,7 @@ export default function AurisHeadUnitPage() {
 
             <H2>The first drive</H2>
             <P>
-              A design that works on a laptop is a rumour. The real test was on day two, from the driver’s
+              A design on a laptop is only a promise. The real test was on day two, from the driver’s
               seat, with a laptop that overheated in the heat of the car.
             </P>
             <P>
@@ -358,10 +359,10 @@ export default function AurisHeadUnitPage() {
               found 9 stations.
             </P>
             <P>
-              Then the screen told me “No signal” on stations I could plainly hear.
+              Then came the first useful find: the screen said “No signal” on stations I could plainly hear.
             </P>
             <P>
-              The thresholds had been guessed. Claude recalibrated them from real readings, and stations that
+              The thresholds had been estimates. Claude recalibrated them from real readings, and stations that
               sounded fine were arriving between −90 and −103.
             </P>
             <P>
@@ -393,8 +394,8 @@ export default function AurisHeadUnitPage() {
 
             <H3>The call-screen fight</H3>
             <P>
-              The best bug was a turf war. On every call, the vendor’s own call screen jumped in front of ours.
-              I wanted it back, fast.
+              The most satisfying bug was a turf war. On every call, the vendor’s own call screen jumped in front of ours.
+              Our screen needed to stay in front, and fast.
             </P>
 
             <Pull>…reclaim in 0.00000000000001 seconds.</Pull>
@@ -423,7 +424,7 @@ export default function AurisHeadUnitPage() {
               headlight beams, a hand-off where the animation melts into the bottom bar.
             </P>
             <P>
-              I rejected all of them. I chose the emblem and wordmark instead.
+              I passed on all of them and chose the emblem and wordmark.
             </P>
 
             <Figure
@@ -483,7 +484,7 @@ export default function AurisHeadUnitPage() {
               I swapped cables. I swapped apps. I switched off the CarPlay service. Same failure.
             </P>
             <P>
-              The conclusion was uncomfortable and clear: a hardware problem in the port or the lead, which no
+              The conclusion was clear, and worth the effort to reach: a hardware problem in the port or the lead, which no
               amount of software could fix.
             </P>
 
@@ -491,7 +492,7 @@ export default function AurisHeadUnitPage() {
             <P>
               Open Headunit is an open-source alternative by André Rinas, installed from its official GitHub.
               It worked, wirelessly, through a developer feature that lets the phone act as an Android Auto
-              head unit server. The catch was that I had to start that server on my phone by hand. Every. Time.
+              head unit server. The catch was that I had to start that server on my phone by hand. every time.
             </P>
 
             <H3>Act three: the lag</H3>
@@ -514,7 +515,7 @@ export default function AurisHeadUnitPage() {
               because Bluetooth is far too slow to stream a screen.
             </P>
             <P>
-              The first attempt failed. The logs showed it proved nothing, though: the phone wasn’t even
+              The first attempt failed, but the logs showed why it proved nothing: the phone wasn’t even
               connected over Bluetooth at the time.
             </P>
             <P>
@@ -549,20 +550,20 @@ export default function AurisHeadUnitPage() {
               restricted the wake-up to mine.
             </P>
             <P>
-              It’s not finished, and I won’t pretend. Native Mode runs at 13 to 20 fps, with audio gaps of up to
+              It’s working, and there’s room to make it better. Native Mode runs at 13 to 20 fps, with audio gaps of up to
               1.5 seconds. My brief was that…
             </P>
 
             <Pull>It needs to be smooth like it’s running flagship chips.</Pull>
 
             <P>
-              It isn’t. The unit has a single 2.4 GHz radio, and during testing it was split between the laptop
+              It isn’t there yet, and the reason is concrete. The unit has a single 2.4 GHz radio, and during testing it was split between the laptop
               link we used for debugging and the Android Auto group. Switching channels starved the stream, and
               disconnecting the laptop by hand made it worse, because a disconnected unit keeps scanning.
             </P>
             <P>
-              Next is a test with no laptop at all. Then the unit’s other USB lead, or a small USB 2.0 hub, to
-              try for a wired connection. Failing that, a wireless Android Auto dongle on 5 GHz.
+              Next I’m testing with no laptop at all. After that, I’ll try the unit’s other USB lead or a small USB 2.0
+              hub for a wired connection. If that falls short, a wireless Android Auto dongle on 5 GHz.
             </P>
 
             <H2>Working with Claude</H2>
@@ -597,7 +598,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <H2>What’s next</H2>
-            <P>Still open, in rough order of how much they annoy me:</P>
+            <P>What I’m working on next:</P>
             <ul className="font-mono text-[15px] md:text-base leading-[1.9] text-parchment/75 max-w-2xl mb-8 list-none">
               {[
                 "An incoming-call test, from someone else calling me.",
@@ -633,11 +634,12 @@ export default function AurisHeadUnitPage() {
             </div>
 
             <P>
-              The car is the same car, with the same wire from the headlights. What changed is the screen, and
-              everything that screen decides for me.
+              The car is the same car. What changed is the screen, and the attitude behind it: if something
+              has always been broken, it can still be fixed. You just have to look closely, test it in the
+              real world and keep going.
             </P>
             <P>
-              And if it all goes wrong, the carousel is one command away.
+              There’s more to improve, and I’m looking forward to it.
             </P>
 
           </article>
