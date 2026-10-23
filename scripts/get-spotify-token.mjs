@@ -5,14 +5,14 @@ const env = fs.readFileSync('.env', 'utf-8');
 const id = env.match(/SPOTIFY_CLIENT_ID=(.*)/)?.[1]?.trim();
 const secret = env.match(/SPOTIFY_CLIENT_SECRET=(.*)/)?.[1]?.trim();
 
-const REDIRECT_URI = 'http://localhost:8888/callback';
+const REDIRECT_URI = 'http://127.0.0.1:8888/callback';
 const SCOPE = 'user-read-currently-playing user-read-recently-played';
 
 const basic = Buffer.from(id + ':' + secret).toString('base64');
 
 const server = http.createServer(async (req, res) => {
   if (req.url.startsWith('/callback')) {
-    const url = new URL(req.url, 'http://localhost:8888');
+    const url = new URL(req.url, 'http://127.0.0.1:8888');
     const code = url.searchParams.get('code');
     
     if (code) {
@@ -52,7 +52,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(8888, () => {
+server.listen(8888, '127.0.0.1', () => {
   const loginUrl = `https://accounts.spotify.com/authorize?client_id=${id}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPE)}`;
   
   console.log('\n--- SPOTIFY OAUTH AUTOMATION ---');

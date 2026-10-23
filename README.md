@@ -25,7 +25,7 @@ SPOTIFY_CLIENT_SECRET=
 SPOTIFY_REFRESH_TOKEN=
 ```
 
-To get a refresh token, add `http://localhost:8888/callback` as a redirect URI on your Spotify app, then run `node scripts/get-spotify-token.mjs` from the repo root and follow the link it prints. The script writes the token into `.env`.
+To get a refresh token, add `http://127.0.0.1:8888/callback` as a redirect URI on your Spotify app, then run `node scripts/get-spotify-token.mjs` from the repo root and follow the link it prints. The script writes the token into `.env`.
 
 ## Layout
 
