@@ -32,18 +32,7 @@ export function Pull({ children }: { children: React.ReactNode }) {
       <p className="font-heading text-3xl md:text-5xl uppercase leading-[1.05] text-parchment">
         {children}
       </p>
-      <footer className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/35 mt-4">
-        Peter, to Claude
-      </footer>
     </blockquote>
-  );
-}
-
-export function Todo({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="border border-dashed border-neonAccent/60 px-4 py-6 my-10 font-mono text-xs md:text-sm text-neonAccent/90 leading-relaxed max-w-3xl">
-      [TODO: {children}]
-    </div>
   );
 }
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import { H2, H3, P, Pull, Todo, Figure } from "./parts";
+import { H2, H3, P, Pull, Figure } from "./parts";
 
 export const metadata: Metadata = {
   title: "Hotwiring My Dashboard | Peter Kioko",
@@ -72,7 +72,6 @@ export default function AurisHeadUnitPage() {
               caption="The finished interface in its night theme, which the headlight wire switches on. The music card and the bottom bar show the same track, played from my phone over Bluetooth."
             />
 
-            <Todo>hero photo of the finished screen in the dashboard</Todo>
 
             <P>
               The home screen on my Toyota Auris was a glass carousel. A dark chrome ring held an album cover
@@ -442,7 +441,6 @@ export default function AurisHeadUnitPage() {
               caption="A frame strip of the shipped animation, read left to right and top to bottom. A bright horizontal flare crosses the emblem in the second frame before it fades fully up."
             />
 
-            <Todo>video of the ignition boot animation on the unit</Todo>
             <P>
               One piece is still missing: an even earlier logo, shown before this animation starts. It lives in a
               partition format I have not decoded yet.
@@ -514,7 +512,6 @@ export default function AurisHeadUnitPage() {
               caption="Left, Open Headunit’s own launcher, the screen I used while it was still manual. Right, my home screen, where the Android Auto tile’s caption has changed from naming Headunit Reloaded to “Wireless”."
             />
 
-            <Todo>video of Android Auto starting by itself when the phone connects</Todo>
 
             <P>
               One tidy detail, from the plan rather than from me: Open Headunit has a setting that tries every
