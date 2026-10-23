@@ -72,18 +72,22 @@ export default function AurisHeadUnitPage() {
               caption="The finished interface in its night theme, which the headlight wire switches on. The music card and the bottom bar show the same track, played from my phone over Bluetooth."
             />
 
-
             <P>
-              The home screen on my Toyota Auris was a glass carousel. A dark chrome ring held an album cover
-              on one side and an analogue clock on the other, with a small car silhouette parked in the middle
-              against a purple skyline. Radio, Bluetooth and Settings sat in a row of icons underneath.
+              The home screen on my Toyota Auris was a glass carousel. A dark chrome ring with an album cover
+              on one side and an analogue clock on the other, a little car silhouette parked in the middle
+              against a purple skyline. Radio, Bluetooth and Settings sat in a row of icons underneath. It was
+              a screensaver that happened to play the radio.
             </P>
             <P>
-              It came with an Android Auto app called Headunit Reloaded, which had never connected. Not over
-              USB, not over Bluetooth, not over a hotspot. Three days later the carousel was gone, the radio,
-              Bluetooth music and phone were mine, the screen switched between a night and a day theme by
-              itself, and Android Auto started when my phone connected. This is how that happened, what broke
-              on the way, and the parts that are still rough.
+              It also came with an Android Auto app called Headunit Reloaded, which had never connected. Not
+              over USB. Not over Bluetooth. Not over a hotspot.
+            </P>
+            <P>Three days later, the carousel was gone.</P>
+            <P>
+              The radio, Bluetooth music and phone were mine. The screen switched between a night and a day
+              theme on its own, and Android Auto started the moment my phone connected. This is how that
+              happened, what I broke on the way, and the bits that are still rough. And if I ever regret it,
+              the carousel is one command away.
             </P>
 
             {/* Spec box */}
@@ -100,17 +104,16 @@ export default function AurisHeadUnitPage() {
               ))}
             </dl>
 
-            {/* 1 */}
             <H2>The box behind the dash</H2>
             <P>
-              The unit is an aftermarket XY Auto F9212A, fitted to replace the car’s older Japanese-market
-              head unit. Inside is an Autochips AC8227L, a quad-core chip from the MediaTek family, with 1 GB
-              of RAM. It runs Android 8.1 while telling anyone who asks that it is 9.1. The screen is 1024×600
-              at 160 dpi, the Wi-Fi is 2.4 GHz only, and no steering-wheel buttons are connected to anything.
+              The unit is an aftermarket XY Auto F9212A, fitted to replace the car’s older Japanese-market head
+              unit. Inside sits an Autochips AC8227L (a quad-core chip from the MediaTek family) and 1 GB of
+              RAM. It runs Android 8.1 while telling anyone who asks that it’s 9.1. The screen is 1024×600 at
+              160 dpi, the Wi-Fi is 2.4 GHz only, and no steering-wheel buttons are connected to anything.
             </P>
             <P>
-              The software is the sort of thing a catalogue photographs well. Skeuomorphic dark chrome, a
-              carousel home screen, a dialpad with bevelled keys. It works, in the way a hotel kettle works.
+              The software looks like something a catalogue photographs well. Dark chrome, bevelled dialpad
+              keys, a carousel. It works, in the way a hotel kettle works.
             </P>
 
             <Figure
@@ -136,54 +139,60 @@ export default function AurisHeadUnitPage() {
             />
 
             <P>
-              The goal was simple to state. Replace the home screen, radio, Bluetooth music and phone with my
-              own apps, keep the vendor’s apps installed as a fallback, and make the result smooth on 1 GB of
-              RAM while using as little of it as possible.
+              The goal was easy to say out loud. Replace the home screen, radio, Bluetooth music and phone with
+              my own apps. Keep the vendor’s apps installed as a fallback. Make it smooth on 1 GB of RAM, using
+              as little of it as possible.
             </P>
             <P>
-              I did not do the work alone. Claude, Anthropic’s AI, ran in Claude Code on my laptop and talked to
-              the unit over ADB, Android’s debugging bridge, across Wi-Fi. I made the decisions and did
-              everything that needed a body in a car. More on that split later.
+              I didn’t do it alone. Claude, Anthropic’s AI, ran in Claude Code on my laptop and talked to the
+              unit over ADB (Android’s debugging bridge) across Wi-Fi. I made the decisions and did everything
+              that needed a body in a car. More on that split later.
             </P>
             <P>
-              Day one began with a clean-up. I went through the preinstalled apps and chose 17 to remove,
-              YouTube among them, which on its own was holding about 98 MB of RAM. A few others had their
-              background activity restricted, and the animation timings were halved. A restore script can put
-              every one of those changes back, which turned out to matter.
+              Day one was a clean-up. I went through the preinstalled apps and picked 17 to remove, YouTube
+              among them. YouTube alone was holding about 98 MB of RAM. A few other apps had their background
+              activity restricted, and the animation timings were halved.
+            </P>
+            <P>
+              A restore script can put every one of those changes back. That turned out to matter.
             </P>
 
-            {/* 2 */}
             <H2>Picking the lock</H2>
             <P>
-              To replace a car’s software you first have to learn what it is quietly doing. Claude decompiled
-              the vendor’s apps and system code, which means turning compiled programs back into something
-              readable, and went looking for hooks. It found four I needed.
+              To replace a car’s software, you first have to find out what it’s quietly doing. Claude
+              decompiled the vendor’s apps and system code (turning compiled programs back into something
+              readable) and went looking for hooks. It found four I needed.
             </P>
             <P>
-              The first is what the notes call the media killer. A vendor patch force-closes every other
-              media app the moment one starts playing, which would have murdered any radio app I wrote. There is
-              an escape: five hidden settings slots, <span className="text-parchment">xy_ext_audiofilter0</span> to{" "}
-              <span className="text-parchment">4</span>, list apps that are exempt. The catch is that they are
-              only read at boot.
+              The first is what the notes call the media killer. A vendor patch force-closes every other media
+              app the moment one starts playing, which would have murdered any radio app I wrote. There’s an
+              escape hatch: five hidden settings slots, <span className="text-parchment">xy_ext_audiofilter0</span> to{" "}
+              <span className="text-parchment">4</span>, list apps that are exempt. The catch? They’re only read
+              at boot.
             </P>
             <P>
-              The others were smaller but just as useful. The default home screen is one vendor setting. The
-              vendor reopens the last radio or music app after start-up, controlled by another. And the wire
-              from the headlights shows up as a system setting called Headlamp, with a value of 0 or 1, which
-              meant my interface could know when it was dark.
+              The other three were smaller but just as useful. The default home screen is a single vendor
+              setting. The vendor reopens the last radio or music app after start-up, controlled by another.
+              And the wire from the headlights shows up as a system setting called Headlamp, 0 or 1, which
+              means my interface can tell when it’s dark.
             </P>
             <P>
-              Then came two discoveries that decided how the whole project would work. First, the system
-              partition, the part of the storage that holds Android itself, is write-protected in hardware.
-              Writes appear to succeed and then vanish after a reboot. So nothing I made could be installed as a
-              true system app.
+              Then came two discoveries that decided how the whole project would work.
             </P>
             <P>
-              Second, the firmware is signed with Android’s public test key, the one from the open-source
-              project that anyone can download. An app signed with the same key is granted system-level
-              permissions even though it lives in ordinary app storage. That is the trick the entire project
-              rests on. It also means any sideloaded app signed with that key could do the same, which is worth
-              knowing if you ever plug a stranger’s software into a car like this.
+              First, the system partition (the part of the storage that holds Android itself) is
+              write-protected in hardware. Writes appear to succeed, then vanish after a reboot. So nothing I
+              built could be installed as a true system app.
+            </P>
+            <P>
+              Second, the firmware is signed with Android’s public test key. The one from the open-source
+              project that anyone can download. An app signed with the same key gets system-level permissions
+              even though it lives in ordinary app storage.
+            </P>
+            <P>
+              That’s the trick the whole project rests on. It also means any sideloaded app signed with that
+              key could do the same, which is worth knowing if you ever plug a stranger’s software into a car
+              like this.
             </P>
 
             <Figure
@@ -200,25 +209,26 @@ export default function AurisHeadUnitPage() {
             />
 
             <P>
-              Before designing anything, I wanted proof. A throwaway radio app was the test. The
-              vendor’s native libraries, the compiled code that talks to the FM chip (an MT6627), had to be
-              bundled into my app. The tuner’s audio had to be routed to the line output by hand. And the chip
-              mutes itself after every tune, so the app has to unmute it each time. When it worked, a first scan
-              found 32 stations, and RDS, the text some stations broadcast alongside their audio, put the name
-              “Classic” on 105.2 MHz.
+              Before designing anything, I wanted proof. So: a throwaway radio app. The vendor’s native
+              libraries (the compiled code that talks to the FM chip, an MT6627) had to be bundled into my app.
+              The tuner’s audio had to be routed to the line output by hand. And the chip mutes itself after
+              every tune, so the app has to unmute it each time.
+            </P>
+            <P>
+              It worked. A first scan found 32 stations, and RDS (the little text some stations broadcast
+              alongside their audio) put the name “Classic” on 105.2 MHz.
             </P>
 
-            {/* 3 */}
             <H2>Designing for arm’s length</H2>
             <P>
-              A car screen is read at arm’s length, by someone who should mostly be looking at the road. So the
-              design is restrained. Big, light-weight type in Geist. Touch targets large enough to hit without
-              aiming. No small all-caps labels, which are the usual way interfaces look organised while being
-              hard to read.
+              A car screen is read at arm’s length by someone who should mostly be looking at the road. So the
+              design is restrained: big, light-weight type (Geist), and touch targets large enough to hit
+              without aiming. No small all-caps labels, which are the usual way an interface looks organised
+              while being hard to read.
             </P>
             <P>
-              The screen is never without context. A live bottom bar, which I call the capsule, always shows
-              what is playing, with controls and a volume stepper. Open the phone screen and the radio is still
+              The screen is never without context. A live bottom bar (I call it the capsule) always shows
+              what’s playing, with controls and a volume stepper. Open the phone screen and the radio’s still
               there, one tap from pausing.
             </P>
 
@@ -264,11 +274,13 @@ export default function AurisHeadUnitPage() {
             />
 
             <P>
-              The part I enjoyed most was the failure states. Claude wrote down about 100 edge cases, from
-              first run to a second caller ringing during a call, and distilled them into 10 error-handling
-              rules. Say what to do, not an error code. Never auto-play anything. Always offer a way back to the
-              original apps. No pop-up dialogs while driving. Errors appear inline, in the place you were
-              already looking.
+              The part I enjoyed most was the failures. Claude wrote down about 100 edge cases, from first run
+              to a second caller ringing mid-call, and boiled them down to 10 error-handling rules. Say what to
+              do, not an error code. Never auto-play anything. Always offer a way back to the original apps. No
+              pop-up dialogs while driving.
+            </P>
+            <P>
+              Errors appear inline, in the place you were already looking.
             </P>
 
             <Figure
@@ -303,51 +315,58 @@ export default function AurisHeadUnitPage() {
               caption="Four of the designed states: the radio failing to start, the phone dropping out, contacts arriving, and the simple mode the home screen falls back to after crashes. The 420 of 840 is a mock-up figure."
             />
 
-            {/* 4 */}
             <H2>Building it small</H2>
             <P>
-              There is no Android Studio in this story, and no Gradle. Claude compiled the apps with the raw
+              There’s no Android Studio in this story. No Gradle either. Claude compiled the apps with the raw
               Android command-line tools, and the whole interface is built in code, with no XML layout files.
+            </P>
+            <P>
               The finished app is about 271 KB. With music playing it used 20.8 MB of memory, on a unit where
               YouTube alone had been holding about 98 MB. Across testing it crashed zero times.
             </P>
             <P>
-              That last number comes with a safety net, because zero is a claim about the past. Three crashes in
-              two minutes drop the home screen into a plain safe mode. A crash while in safe mode hands control
-              back to the vendor’s home screen. The car is never left without a screen to look at.
+              That last number comes with a safety net, because zero is only a claim about the past. Three
+              crashes in two minutes drop the home screen into a plain safe mode. A crash in safe mode hands
+              control back to the vendor’s home screen. The car is never left without a screen.
             </P>
             <P>
-              The headlights choose the theme. Lights on means night, lights off means day. A flicker shorter
-              than two seconds is ignored, so a flicker does not strobe the display, and if the signal goes
-              missing the interface falls back to the clock. I tested both directions in the car.
+              The headlights choose the theme. Lights on, night. Lights off, day. A flicker shorter than two
+              seconds is ignored, so it doesn’t strobe the display, and if the signal goes missing the
+              interface falls back to the clock. I tested both directions in the car.
             </P>
             <P>
-              One rule is mine, and it shaped the phone screen. Different people drive this car, and the same
-              person can be saved under different names on different phones. So contacts and recent calls load
-              when a phone connects and are wiped when it disconnects. They are never stored. 383 contacts and
-              300 calls arrive in a few seconds.
+              One rule is mine, and it shaped the whole phone screen. Different people drive this car, and the
+              same person can be saved under different names on different phones. So contacts and recent calls
+              load when a phone connects and are wiped when it disconnects. Never stored.
             </P>
             <P>
-              The honest footnote is that the vendor’s own contacts store ignores delete requests. Our screens
-              clear at once, but the data sits underneath until it is cleared by hand. I wiped it once with
+              383 contacts and 300 calls arrive in a few seconds.
+            </P>
+            <P>
+              The honest footnote: the vendor’s own contacts store ignores delete requests. Our screens clear
+              at once, but the data sits underneath until someone clears it by hand. I wiped it once with
               sqlite3 as root. An automatic wipe is still open.
             </P>
 
-            {/* 5 */}
             <H2>The first drive</H2>
             <P>
-              A design that works on a laptop is a rumour. The first real test was on day two, from the driver’s
-              seat, with a laptop that overheated in the heat of the car. After a reboot, our home screen came
-              up and the radio carried on. The radio had sound, and a scan found 9 stations.
+              A design that works on a laptop is a rumour. The real test was on day two, from the driver’s
+              seat, with a laptop that overheated in the heat of the car.
             </P>
             <P>
-              Then the screen told me “No signal” on stations I could plainly hear. The thresholds had been
-              guessed. Claude recalibrated them from real readings: stations that sounded fine were arriving
-              between −90 and −103.
+              After a reboot, our home screen came up and the radio carried on. There was sound, and a scan
+              found 9 stations.
             </P>
             <P>
-              Long song titles ran off the edge of the screen, which is the kind of bug that never appears with
-              the placeholder text used in a design.
+              Then the screen told me “No signal” on stations I could plainly hear.
+            </P>
+            <P>
+              The thresholds had been guessed. Claude recalibrated them from real readings, and stations that
+              sounded fine were arriving between −90 and −103.
+            </P>
+            <P>
+              Long song titles ran off the edge of the screen. That’s the kind of bug that never shows up when
+              your design uses placeholder text.
             </P>
 
             <Figure
@@ -375,12 +394,13 @@ export default function AurisHeadUnitPage() {
             <H3>The call-screen fight</H3>
             <P>
               The best bug was a turf war. On every call, the vendor’s own call screen jumped in front of ours.
+              I wanted it back, fast.
             </P>
 
             <Pull>…reclaim in 0.00000000000001 seconds.</Pull>
 
             <P>
-              Physics declined, but the fix came close. Our app now watches for the vendor screen and takes the
+              Physics declined, but the fix got close. Our app now watches for the vendor screen and takes the
               front back immediately, with checks at 0, 120 and 400 milliseconds. If Android has recreated our
               app in the meantime, it rebuilds straight onto the call screen.
             </P>
@@ -396,13 +416,14 @@ export default function AurisHeadUnitPage() {
               antenna, a leftover from the old Japanese unit, was swapped for another. GPS now works.
             </P>
 
-            {/* 6 */}
             <H2>Ignition on</H2>
             <P>
               I wanted something creative when the ignition comes on, using the Toyota emblem and the AURIS
               wordmark, and I supplied the logo files. Claude built a handful of concepts: a tuning-dial sweep,
-              headlight beams, a hand-off where the animation melts into the bottom bar. I rejected all of them.
-              I chose the emblem and wordmark instead.
+              headlight beams, a hand-off where the animation melts into the bottom bar.
+            </P>
+            <P>
+              I rejected all of them. I chose the emblem and wordmark instead.
             </P>
 
             <Figure
@@ -419,13 +440,13 @@ export default function AurisHeadUnitPage() {
             />
 
             <P>
-              The shipped version is simpler: the emblem fades up out of black, then the wordmark appears. It is
-              100 frames at 20 fps, at the screen’s native 1024×600.
+              The shipped version is simpler. The emblem fades up out of black, then the wordmark appears. 100
+              frames at 20 fps, at the screen’s native 1024×600.
             </P>
             <P>
               Getting it on screen was its own puzzle, because the write-protected system partition is where
               boot animations normally live. A hidden MediaTek setting makes the unit load a custom animation
-              from normal storage instead, and that is where the animation sits.
+              from normal storage instead, and that’s where mine sits.
             </P>
 
             <Figure
@@ -442,38 +463,45 @@ export default function AurisHeadUnitPage() {
             />
 
             <P>
-              One piece is still missing: an even earlier logo, shown before this animation starts. It lives in a
-              partition format I have not decoded yet.
+              One piece is still missing: an even earlier logo, shown before this animation starts. It lives in
+              a partition format I haven’t decoded yet.
             </P>
 
-            {/* 7 */}
             <H2>The cable that wouldn’t listen</H2>
             <P>
-              Android Auto took longer than everything else together, and it did not end where I expected.
+              Android Auto took longer than everything else put together. And it didn’t end where I expected.
             </P>
 
             <H3>Act one: the port</H3>
             <P>
-              Headunit Reloaded never connected over USB. Live logs showed why. The phone switches into Android
-              Auto mode, then it has to reconnect to the unit’s USB port, and the port fails every time with a
-              low-level error: <span className="text-parchment">error -71</span>, “device not accepting
-              address”. Nearly 300 of them in about three minutes. I swapped cables, swapped apps, and switched
-              off the CarPlay service. Same failure. The conclusion was uncomfortable and clear: a hardware
-              problem in the port or the lead, which no amount of software could fix.
+              Headunit Reloaded never connected over USB, and live logs showed why. The phone switches into
+              Android Auto mode, then has to reconnect to the unit’s USB port, and the port fails every time
+              with a low-level error: <span className="text-parchment">error -71</span>, “device not accepting
+              address”. Nearly 300 of them in about three minutes.
+            </P>
+            <P>
+              I swapped cables. I swapped apps. I switched off the CarPlay service. Same failure.
+            </P>
+            <P>
+              The conclusion was uncomfortable and clear: a hardware problem in the port or the lead, which no
+              amount of software could fix.
             </P>
 
             <H3>Act two: a server by hand</H3>
             <P>
               Open Headunit is an open-source alternative by André Rinas, installed from its official GitHub.
-              It worked, wirelessly, through a developer feature that lets the phone act as an Android Auto head
-              unit server. The catch was that I had to start that server on my phone by hand, every time.
+              It worked, wirelessly, through a developer feature that lets the phone act as an Android Auto
+              head unit server. The catch was that I had to start that server on my phone by hand. Every. Time.
             </P>
 
             <H3>Act three: the lag</H3>
             <P>
-              It also ran at about 13 frames per second. The cause was a rendering mode. Android has two ways of
-              drawing video to a screen, and the one in use, TextureView, was showing only 13 of 46 decoded
-              frames. Switching to SurfaceView, and dropping the resolution it had negotiated from 1280×720 to
+              It also ran at about 13 frames per second. The cause was a rendering mode. Android has two ways
+              of drawing video to a screen, and the one in use, TextureView, was showing only 13 of 46 decoded
+              frames.
+            </P>
+            <P>
+              Switching to SurfaceView, and dropping the resolution it had negotiated from 1280×720 to
               800×480, gave a steady 30 fps. My review was short: “It’s much smoother now.”
             </P>
 
@@ -481,15 +509,18 @@ export default function AurisHeadUnitPage() {
             <P>
               I asked for it to work over Bluetooth, without me having to start a server and all that weird
               stuff. Open Headunit has a Native Mode, which speaks Android Auto’s real wireless handshake, the
-              way factory cars do. Bluetooth does the introduction (“I support Android Auto, here is my private
-              Wi-Fi”), and Wi-Fi Direct, a phone-to-device link that needs no router, carries the video, because
-              Bluetooth is far too slow to stream a screen.
+              way factory cars do. Bluetooth does the introduction (“I support Android Auto, here’s my private
+              Wi-Fi”), and Wi-Fi Direct, a phone-to-device link that needs no router, carries the video,
+              because Bluetooth is far too slow to stream a screen.
             </P>
             <P>
-              The first attempt failed, and the logs showed it proved nothing: the phone was not even connected
-              over Bluetooth at the time. The real fix was to unpair and re-pair the phone while Native Mode was
-              listening. A phone only learns what services a car offers when it pairs. Once it knew, Android
-              Auto started by itself on connect. The first Wi-Fi join failed, and the automatic retry worked.
+              The first attempt failed. The logs showed it proved nothing, though: the phone wasn’t even
+              connected over Bluetooth at the time.
+            </P>
+            <P>
+              The real fix was to unpair and re-pair the phone while Native Mode was listening. A phone only
+              learns what services a car offers when it pairs. Once it knew, Android Auto started by itself on
+              connect. The first Wi-Fi join failed, and the automatic retry worked.
             </P>
 
             <Figure
@@ -512,59 +543,59 @@ export default function AurisHeadUnitPage() {
               caption="Left, Open Headunit’s own launcher, the screen I used while it was still manual. Right, my home screen, where the Android Auto tile’s caption has changed from naming Headunit Reloaded to “Wireless”."
             />
 
-
             <P>
               One tidy detail, from the plan rather than from me: Open Headunit has a setting that tries every
               paired phone. Other people’s phones are paired to this car, so Claude’s plan turned it off and
               restricted the wake-up to mine.
             </P>
             <P>
-              It is not finished, and I will not pretend. Native Mode runs at 13 to 20 fps, with audio gaps of up
-              to 1.5 seconds. My brief was that…
+              It’s not finished, and I won’t pretend. Native Mode runs at 13 to 20 fps, with audio gaps of up to
+              1.5 seconds. My brief was that…
             </P>
 
             <Pull>It needs to be smooth like it’s running flagship chips.</Pull>
 
             <P>
-              It is not. The unit has a single 2.4 GHz radio, and during testing it was split between the laptop
+              It isn’t. The unit has a single 2.4 GHz radio, and during testing it was split between the laptop
               link we used for debugging and the Android Auto group. Switching channels starved the stream, and
               disconnecting the laptop by hand made it worse, because a disconnected unit keeps scanning.
             </P>
             <P>
-              Next is a test with no laptop at all, then the unit’s other USB lead, or a small USB 2.0 hub, to
+              Next is a test with no laptop at all. Then the unit’s other USB lead, or a small USB 2.0 hub, to
               try for a wired connection. Failing that, a wireless Android Auto dongle on 5 GHz.
             </P>
 
-            {/* 8 */}
             <H2>Working with Claude</H2>
             <P>
-              It would be easy to tell this story as “the AI did it”, and just as easy to leave it out. Neither
-              is true, so here is the split.
+              It would be easy to tell this as “the AI did it”. It would be just as easy to leave the AI out.
+              Neither is true, so here’s the split.
             </P>
             <P>
-              I owned the goal, the taste and the decisions. Which apps went. The contacts privacy rule. The boot
-              design, and the Toyota and Auris logo files. The design feedback, such as the borders in light mode.
-              I also did all of the physical work: every test from the driver’s seat, plugging phones in, pairing
+              I owned the goal, the taste and the decisions. Which apps went. The contacts privacy rule. The
+              boot design, and the Toyota and Auris logo files. The design feedback, like the borders in light
+              mode.
+            </P>
+            <P>
+              I also did all the physical work: every test from the driver’s seat, plugging phones in, pairing
               and unpairing them, swapping the GPS antenna, and sitting in a hot car with a laptop that was
               slowly cooking.
             </P>
             <P>
-              Claude, running in Claude Code on my laptop with ADB over Wi-Fi to the unit, did the following. It
-              reverse-engineered the vendor software by decompiling the apps and reading system code. It designed
-              the interface on a design canvas, 51 boards across night and day themes with about 100 edge cases.
-              It wrote the Android apps, built the boot animation, and debugged live from the unit’s logs.
+              Claude, running in Claude Code on my laptop with ADB over Wi-Fi to the unit, did the rest of the
+              heavy lifting. It reverse-engineered the vendor software by decompiling the apps and reading
+              system code. It designed the interface on a design canvas: 51 boards across night and day themes,
+              with about 100 edge cases. It wrote the Android apps, built the boot animation, and debugged live
+              from the unit’s logs.
             </P>
             <P>
-              It also asked before anything risky, and kept the restore script current so that everything stayed
-              reversible. The 11 GB deletion waited for my approval. Vendor apps were never removed. If I decide
-              the whole project was a mistake, one command puts the carousel back.
+              It also asked before anything risky, and kept the restore script current so everything stayed
+              reversible. The 11 GB deletion waited for my approval. Vendor apps were never removed.
             </P>
             <P>
-              What it could not do is sit in the car. A “No signal” label on a station I could hear is the kind of
-              bug that only shows up from the driver’s seat.
+              What it couldn’t do is sit in the car. A “No signal” label on a station I could hear is the kind
+              of bug that only shows up from the driver’s seat.
             </P>
 
-            {/* 9 */}
             <H2>What’s next</H2>
             <P>Still open, in rough order of how much they annoy me:</P>
             <ul className="font-mono text-[15px] md:text-base leading-[1.9] text-parchment/75 max-w-2xl mb-8 list-none">
@@ -574,7 +605,7 @@ export default function AurisHeadUnitPage() {
                 "Volume, compared with the car’s own volume controller.",
                 "An early power-on logo, before the boot animation.",
                 "Android Auto smoothness, as above.",
-                "A phone companion app to send album art to the car, because Android 8.1’s Bluetooth cannot receive cover art.",
+                "A phone companion app to send album art to the car, because Android 8.1’s Bluetooth can’t receive cover art.",
               ].map((t) => (
                 <li key={t} className="flex gap-4 py-2 border-b border-parchment/10">
                   <span className="text-neonAccent shrink-0 select-none">—</span>
@@ -603,8 +634,12 @@ export default function AurisHeadUnitPage() {
 
             <P>
               The car is the same car, with the same wire from the headlights. What changed is the screen, and
-              everything that screen decided for me.
+              everything that screen decides for me.
             </P>
+            <P>
+              And if it all goes wrong, the carousel is one command away.
+            </P>
+
           </article>
 
           <section className="px-4 md:px-12 pt-12 md:pt-20 mt-16 border-t border-parchment/10">
