@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
-import { H2, H3, P, Pull, Figure } from "./parts";
+import { H2, H3, P, Pull, Figure } from "@/components/Article";
+
+const BASE = "/projects/auris-head-unit";
 
 export const metadata: Metadata = {
   title: "Hotwiring My Dashboard | Peter Kioko",
@@ -58,6 +60,7 @@ export default function AurisHeadUnitPage() {
 
           <article className="px-4 md:px-12 pt-12 md:pt-16 max-w-5xl">
             <Figure
+              base={BASE}
               priority
               kind="On the car"
               items={[
@@ -117,6 +120,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               cols={2}
               kind="On the car"
               items={[
@@ -196,6 +200,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               kind="Prototype"
               items={[
                 {
@@ -233,6 +238,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               cols={2}
               kind="Design"
               items={[
@@ -255,6 +261,7 @@ export default function AurisHeadUnitPage() {
             />
 
             <Figure
+              base={BASE}
               kind="Design"
               items={[
                 {
@@ -284,6 +291,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               cols={2}
               kind="Design"
               items={[
@@ -370,6 +378,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               cols={2}
               kind="On the car"
               items={[
@@ -427,6 +436,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               kind="Design"
               items={[
                 {
@@ -450,6 +460,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               kind="Boot animation"
               items={[
                 {
@@ -524,6 +535,7 @@ export default function AurisHeadUnitPage() {
             </P>
 
             <Figure
+              base={BASE}
               cols={2}
               kind="On the car"
               items={[

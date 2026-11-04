@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-const BASE = "/projects/auris-head-unit";
-
 export function H2({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="font-heading text-4xl md:text-6xl uppercase leading-none text-parchment mt-20 md:mt-28 mb-8 md:mb-10">
@@ -52,17 +50,22 @@ export function Figure({
   items,
   kind,
   caption,
+  base,
   cols = 1,
+  narrow = false,
   priority = false,
 }: {
   items: Item[];
   kind: string;
   caption: React.ReactNode;
+  base: string;
   cols?: 1 | 2;
+  // Portrait photos at full article width are taller than the viewport.
+  narrow?: boolean;
   priority?: boolean;
 }) {
   return (
-    <figure className="my-12 md:my-14">
+    <figure className={`my-12 md:my-14 ${narrow ? "max-w-md" : ""}`}>
       <div className={`grid gap-3 md:gap-4 ${cols === 2 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
         {items.map((it) => (
           <div key={it.file}>
@@ -73,11 +76,11 @@ export function Figure({
             )}
             <div className="border border-parchment/10 overflow-hidden bg-[#0a0a0a]">
               <Image
-                src={`${BASE}/${it.file}.webp`}
+                src={`${base}/${it.file}.webp`}
                 alt={it.alt}
                 width={it.w}
                 height={it.h}
-                sizes={cols === 2 ? "(min-width: 1024px) 480px, 100vw" : "(min-width: 1024px) 1000px, 100vw"}
+                sizes={narrow ? "(min-width: 768px) 448px, 100vw" : cols === 2 ? "(min-width: 1024px) 480px, 100vw" : "(min-width: 1024px) 1000px, 100vw"}
                 className="w-full h-auto"
                 priority={priority}
               />

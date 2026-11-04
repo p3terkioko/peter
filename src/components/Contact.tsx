@@ -40,6 +40,7 @@ export default function Contact() {
           <a href="https://www.linkedin.com/in/peter-kioko-94294723b/" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">LinkedIn</a>
           <Link href="/cv" className="hover:underline hover-target">CV</Link>
           <a href="/Peter_Kioko_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:underline hover-target">Download CV</a>
+          <Link href="/writing/i-never-closed-them" className="hover:underline hover-target">Writing</Link>
           <Link href="/kitchen" className="hover:underline hover-target">Kitchen</Link>
         </div>
       </div>
