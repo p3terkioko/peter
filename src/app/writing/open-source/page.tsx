@@ -78,7 +78,6 @@ export default function OpenSourcePage() {
             <Figure
               base={BASE}
               narrow
-              kind="Opened"
               items={[
                 {
                   file: "tablet-opened",
@@ -87,7 +86,7 @@ export default function OpenSourcePage() {
                   alt: "The inside of the Tecno 7Cs tablet with the screen removed: a black circuit board with metal shields across the top third, and a large 3000 mAh battery filling most of the rest of the case.",
                 },
               ]}
-              caption="The Tecno 7Cs. The board gets the top third, and the battery gets nearly all the rest."
+              caption="Tecno 7Cs"
             />
             <P>
               Somewhere in all of this, I found Linus Tech Tips, and it became a daily habit. The PC builds hooked
@@ -132,7 +131,6 @@ export default function OpenSourcePage() {
             <Figure
               base={BASE}
               narrow
-              kind="On the desk"
               items={[
                 {
                   file: "boards",
@@ -141,7 +139,7 @@ export default function OpenSourcePage() {
                   alt: "Two blue Arduino Uno boards stacked on a wooden desk, with a smaller black TTGO T-Display ESP32 board and its blank screen below them.",
                 },
               ]}
-              caption="Two Arduino Unos, and the TTGO T-Display that will become the router screen."
+              caption="Two Arduino Unos and the TTGO T-Display"
             />
 
             <P>

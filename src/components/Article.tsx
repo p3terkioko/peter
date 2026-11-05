@@ -56,7 +56,7 @@ export function Figure({
   priority = false,
 }: {
   items: Item[];
-  kind: string;
+  kind?: string;
   caption: React.ReactNode;
   base: string;
   cols?: 1 | 2;
@@ -89,7 +89,7 @@ export function Figure({
         ))}
       </div>
       <figcaption className="font-mono text-[11px] md:text-xs leading-relaxed text-parchment/50 mt-3 max-w-3xl">
-        <span className="text-neonAccent uppercase tracking-widest mr-2">{kind}:</span>
+        {kind && <span className="text-neonAccent uppercase tracking-widest mr-2">{kind}:</span>}
         {caption}
       </figcaption>
     </figure>
