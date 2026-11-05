@@ -260,9 +260,6 @@ export default function BuddyPage() {
                   Works ↗
                 </Link>
               </div>
-              <p className="font-mono text-[9px] tracking-widest uppercase text-parchment/20">
-                Peter Kioko, 2026
-              </p>
             </div>
           </section>
 

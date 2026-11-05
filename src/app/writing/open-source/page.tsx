@@ -3,6 +3,7 @@ import Link from "next/link";
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import { P, Pull, Figure } from "@/components/Article";
+import ReadDepth from "@/components/ReadDepth";
 
 export const metadata: Metadata = {
   title: "Open? Source | Peter Kioko",
@@ -16,6 +17,7 @@ export default function OpenSourcePage() {
   return (
     <>
       <CustomCursor />
+      <ReadDepth post="open-source" />
       <SmoothScrolling>
         <main className="min-h-screen bg-charcoal text-parchment pb-24">
           <div className="fixed top-6 left-4 md:top-8 md:left-8 z-50">
@@ -35,7 +37,7 @@ export default function OpenSourcePage() {
               Open? Source
             </h1>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/30 mt-6">
-              Peter Kioko · 4 November 2026
+              4 November 2026
             </p>
           </header>
 
@@ -165,9 +167,6 @@ export default function OpenSourcePage() {
                   Works ↗
                 </Link>
               </div>
-              <p className="font-mono text-[9px] tracking-widest uppercase text-parchment/20">
-                Peter Kioko, 2026
-              </p>
             </div>
           </section>
         </main>

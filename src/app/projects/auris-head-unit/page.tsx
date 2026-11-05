@@ -54,7 +54,7 @@ export default function AurisHeadUnitPage() {
               Rebuilding my car’s screen
             </p>
             <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-parchment/30 mt-6">
-              Peter Kioko · 20 to 22 October 2026
+              20 to 22 October 2026
             </p>
           </header>
 
@@ -668,9 +668,6 @@ export default function AurisHeadUnitPage() {
                   Works ↗
                 </Link>
               </div>
-              <p className="font-mono text-[9px] tracking-widest uppercase text-parchment/20">
-                Peter Kioko, 2026
-              </p>
             </div>
           </section>
         </main>
